@@ -1,0 +1,13 @@
+# robots.txt — ART ROOTS MEDIA W.L.L
+# https://artroots.bh
+
+User-agent: *
+Allow: /
+
+# Block dev/build artifacts
+Disallow: /node_modules/
+Disallow: /.vite/
+Disallow: /dist/
+
+# Sitemap
+Sitemap: https://artroots.bh/sitemap.xml

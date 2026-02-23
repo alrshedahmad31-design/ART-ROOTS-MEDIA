@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════
+   ART ROOTS MEDIA — Midnight Luxe
+   Global Styles & Design System
+   ═══════════════════════════════════════ */
+
+/* ─── Cairo Arabic Font (Local) ─── */
+@font-face {
+  font-family: 'Cairo';
+  src: url('/assets/fonts/cairo-arabic-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('/assets/fonts/cairo-arabic-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('/assets/fonts/cairo-arabic-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo';
+  src: url('/assets/fonts/cairo-arabic-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --obsidian: #0D0D12;
+  --champagne: #C9A84C;
+  --ivory: #FAF8F5;
+  --slate: #2A2A35;
+  --champagne-light: #D4B95E;
+  --champagne-dark: #B89A3E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--obsidian);
+  color: var(--ivory);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* RTL Support — Cairo Arabic Font */
+[dir="rtl"],
+[dir="rtl"] * {
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+[dir="rtl"] .font-drama,
+[dir="rtl"] .font-mono {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ─── Noise Overlay ─── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--champagne);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--champagne-light);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: var(--ivory);
+}
+
+/* ─── Typography ─── */
+.font-drama {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── Magnetic Button ─── */
+.btn-magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.03) translateY(-1px);
+}
+
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--champagne);
+  color: var(--obsidian);
+}
+
+.btn-primary:hover {
+  background: var(--champagne-light);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(250, 248, 245, 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--champagne);
+  color: var(--champagne);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.1);
+}
+
+/* ─── Glass Card ─── */
+.glass-card {
+  background: rgba(13, 13, 18, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(250, 248, 245, 0.08);
+  border-radius: 2rem;
+}
+
+.glass-card-light {
+  background: rgba(250, 248, 245, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(250, 248, 245, 0.1);
+  border-radius: 2rem;
+}
+
+/* ─── Section Spacing ─── */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 10rem 4rem;
+  }
+}
+
+/* ─── Gradient Overlays ─── */
+.gradient-hero {
+  background: linear-gradient(to top,
+      var(--obsidian) 0%,
+      rgba(13, 13, 18, 0.85) 30%,
+      rgba(13, 13, 18, 0.4) 60%,
+      rgba(13, 13, 18, 0.2) 100%);
+}
+
+/* ─── Animated Underline ─── */
+.link-hover {
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--champagne);
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover {
+  color: var(--champagne);
+  transform: translateY(-1px);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+[dir="rtl"] .link-hover::after {
+  left: auto;
+  right: 0;
+}
+
+/* ─── Pulsing Dot ─── */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  position: relative;
+}
+
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.3);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ─── Parallax Container ─── */
+.parallax-bg {
+  position: absolute;
+  inset: -20%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+}
+
+/* ─── Cursor Blink ─── */
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Page Transitions ─── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Container ─── */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding: 0 3rem;
+  }
+}
