@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n';
+import useSEO from '../hooks/useSEO';
 import { X, ZoomIn } from 'lucide-react';
 import CardStack from '../components/CardStack';
 
@@ -69,6 +70,16 @@ export default function Portfolio() {
     const { t, lang, isRTL } = useLanguage();
     const [activeFilter, setActiveFilter] = useState('all');
     const [lightbox, setLightbox] = useState(null);
+
+    useSEO({
+        title: isRTL
+            ? 'معرض أعمالنا — أرت روتس ميديا | مشاريع الطباعة واللافتات في البحرين'
+            : 'Our Portfolio — ART ROOTS MEDIA | Signage & Printing Projects in Bahrain',
+        description: isRTL
+            ? 'شاهد مشاريعنا السابقة في البحرين: لافتات محلات، هوية تجارية، طباعة واجهات، وقص ليزر. جودة إنتاج تتحدث عن نفسها.'
+            : 'Explore our latest signage, branding, and printing projects across Bahrain. From shopfronts to corporate identities, see our production quality.',
+        canonical: 'https://artroots.bh/portfolio',
+    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
