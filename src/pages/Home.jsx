@@ -16,7 +16,7 @@ export default function Home() {
         description: isRTL
             ? 'أرت روتس ميديا — شريكك الموثوق للإنتاج الإعلاني في البحرين. طباعة، لافتات، هوية تجارية، قص بالليزر، تركيب وصيانة. ضمان ألوان وجودة.'
             : 'ART ROOTS MEDIA — Bahrain\'s trusted production partner for signage, printing, branding, laser/CNC & shopfront installation. In-house workshop. Color-quality guarantee.',
-        canonical: 'https://artroots.bh/',
+        canonical: 'https://artrootsmedia.com/',
     });
 
     return (
@@ -25,7 +25,7 @@ export default function Home() {
             <Features />
             <Philosophy />
             <Protocol />
-            <FAQSection />
+            <FAQSection condensed={true} />
             <CTASection />
         </>
     );

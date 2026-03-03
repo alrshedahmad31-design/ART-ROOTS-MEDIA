@@ -15,12 +15,12 @@ export default function Philosophy() {
                             setTimeout(() => {
                                 word.style.opacity = '1';
                                 word.style.transform = 'translateY(0)';
-                            }, i * 80);
+                            }, i * 40);
                         });
                     }
                 });
             },
-            { threshold: 0.3 }
+            { threshold: 0.2 }
         );
 
         if (sectionRef.current) observer.observe(sectionRef.current);
@@ -32,8 +32,8 @@ export default function Philosophy() {
             {text.split(' ').map((word, i) => (
                 <span
                     key={i}
-                    className={`word-reveal inline-block transition-all duration-500 ${className}`}
-                    style={{ opacity: 0, transform: 'translateY(20px)', transitionDelay: `${i * 80}ms` }}
+                    className={`word-reveal inline-block transition-all duration-700 ${className}`}
+                    style={{ opacity: 0, transform: 'translateY(10px)' }}
                 >
                     {word}&nbsp;
                 </span>
@@ -42,43 +42,51 @@ export default function Philosophy() {
     );
 
     return (
-        <section ref={sectionRef} className="relative py-24 md:py-40 overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-slate" />
+        <section ref={sectionRef} className="relative py-32 md:py-56 overflow-hidden bg-onyx">
+            {/* Dramatic Background */}
             <div
-                className="parallax-bg"
+                className="absolute inset-0 grayscale opacity-20 transition-opacity duration-1000"
                 style={{
                     backgroundImage: 'url(https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80)',
-                    opacity: 0.08,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                 }}
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-onyx via-transparent to-onyx" />
 
             <div className="container-custom relative z-10">
-                <div className={`max-w-4xl ${isRTL ? 'mr-0 ml-auto text-right' : 'ml-0 mr-auto text-left'}`}>
+                <div className={`max-w-5xl ${isRTL ? 'mr-0 ml-auto text-right' : 'ml-0 mr-auto text-left'}`}>
+                    <div className="flex items-center gap-4 mb-10">
+                        <div className="w-16 h-[2px] bg-signal-red" />
+                        <span className="font-mono text-xs font-bold text-off-white/40 uppercase tracking-[0.4em]">PHILOSOPHY_v2.0</span>
+                    </div>
+
                     {/* Line 1: Neutral */}
-                    <p className="text-lg md:text-2xl text-ivory/40 leading-relaxed mb-4 text-justify">
+                    <p className="text-xl md:text-3xl lg:text-4xl text-off-white/40 leading-tight mb-6 font-space">
                         <WordReveal text={t.philosophy.line1} />
                         <br />
-                        <span className="text-ivory/60 font-medium">
+                        <span className="text-off-white font-bold uppercase tracking-tight">
                             <WordReveal text={t.philosophy.highlight1} />
                         </span>
                     </p>
 
-                    {/* Divider */}
-                    <div className="w-16 h-[1px] bg-champagne/30 my-8 md:my-12" />
-
                     {/* Line 2: Massive */}
-                    <p className="text-lg md:text-2xl text-ivory/40 leading-relaxed mb-2 text-justify">
+                    <p className="text-xl md:text-3xl lg:text-4xl text-off-white/40 leading-tight mb-4 font-space">
                         <WordReveal text={t.philosophy.line2} />
                     </p>
-                    <p className="text-4xl md:text-6xl lg:text-7xl font-drama italic leading-[1.1] mb-8 md:mb-12">
-                        <WordReveal text={t.philosophy.highlight2} className="text-champagne" />
+                    <p className="text-5xl md:text-8xl lg:text-[10rem] font-serif leading-[0.9] mb-12 tracking-tighter">
+                        <WordReveal text={t.philosophy.highlight2} className="text-signal-red" />
                     </p>
 
                     {/* Description */}
-                    <p className="text-base md:text-lg text-ivory/40 leading-relaxed max-w-2xl text-justify">
-                        <WordReveal text={t.philosophy.description} />
-                    </p>
+                    <div className="flex flex-col md:flex-row gap-12 items-start">
+                        <p className="text-lg md:text-xl text-off-white/50 leading-relaxed max-w-2xl font-space">
+                            <WordReveal text={t.philosophy.description} />
+                        </p>
+                        <div className="font-mono text-[10px] text-off-white/20 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
+                            EST_QUALITY_SYSTEMS
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

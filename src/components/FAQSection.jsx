@@ -1,6 +1,7 @@
 import { useLanguage } from '../i18n';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const faqData = {
     en: [
@@ -53,58 +54,83 @@ const faqData = {
     ],
 };
 
-export default function FAQSection() {
-    const { isRTL } = useLanguage();
+export default function FAQSection({
+    condensed = false,
+    label,
+    title,
+    subtitle,
+    bgClass = '',
+    isDark = false
+}) {
+    const { t, isRTL } = useLanguage();
     const lang = isRTL ? 'ar' : 'en';
-    const faqs = faqData[lang];
+    const faqs = condensed ? faqData[lang].slice(0, 3) : faqData[lang];
     const [openIndex, setOpenIndex] = useState(null);
 
+    const activeLabel = label || t.faq.label;
+    const activeTitle = title || t.faq.title;
+    const activeSubtitle = subtitle || t.faq.subtitle;
+
+    const defaultBg = condensed ? 'bg-off-white' : 'bg-sand/10';
+    const finalBg = bgClass || defaultBg;
+
     return (
-        <section className="section-padding bg-obsidian" aria-label={isRTL ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}>
+        <section
+            className={`py-24 md:py-32 ${finalBg} ${isDark ? 'text-ivory' : 'text-onyx'}`}
+            aria-label={isRTL ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+        >
             <div className="container-custom">
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-4xl mx-auto">
                     {/* Section Header */}
-                    <div className={`mb-12 ${isRTL ? 'text-right' : 'text-left'}`}>
-                        <span className="font-mono text-xs text-champagne/70 uppercase tracking-widest mb-3 block">
-                            {isRTL ? 'الأسئلة الشائعة' : 'FAQ'}
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-ivory mb-4">
-                            {isRTL
-                                ? 'أسئلة يطرحها عملاؤنا'
-                                : 'Frequently Asked Questions'}
+                    <div className={`mb-20 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="w-12 h-[2px] bg-signal-red" />
+                            <span className={`font-mono text-xs font-bold uppercase tracking-[0.4em] ${isDark ? 'text-ivory/40' : 'text-onyx/40'}`}>
+                                {activeLabel}
+                            </span>
+                        </div>
+                        <h2 className={`text-4xl md:text-6xl font-heading font-black mb-8 uppercase tracking-tighter ${isDark ? 'text-ivory' : 'text-onyx'}`}>
+                            {activeTitle}
                         </h2>
-                        <p className="text-ivory/50 text-base leading-relaxed">
-                            {isRTL
-                                ? 'إجابات مباشرة على أكثر ما يُستفسَر عنه حول خدماتنا في البحرين.'
-                                : 'Quick answers about our services, location, and production process in Bahrain.'}
+                        <p className={`text-lg leading-relaxed max-w-2xl font-space ${isDark ? 'text-ivory/60' : 'text-onyx/60'}`}>
+                            {activeSubtitle}
                         </p>
                     </div>
 
                     {/* FAQ Accordion */}
-                    <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
+                    <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
                         {faqs.map((faq, i) => (
                             <div
                                 key={i}
                                 itemScope
                                 itemProp="mainEntity"
                                 itemType="https://schema.org/Question"
-                                className="glass-card-light rounded-2xl overflow-hidden border border-ivory/5"
+                                className={`border-2 transition-all duration-300 ${openIndex === i
+                                    ? 'border-signal-red bg-onyx text-off-white'
+                                    : isDark
+                                        ? 'border-ivory/10 bg-ivory/5 text-ivory hover:border-ivory/30'
+                                        : 'border-onyx/10 bg-sand/20 text-onyx hover:border-onyx/30'
+                                    }`}
                             >
                                 <button
                                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                    className={`w-full flex items-center justify-between p-6 gap-4 text-${isRTL ? 'right' : 'left'} hover:bg-ivory/5 transition-colors`}
+                                    className={`w-full flex items-center justify-between p-8 gap-6 text-${isRTL ? 'right' : 'left'} transition-colors`}
                                     aria-expanded={openIndex === i}
                                 >
                                     <h3
                                         itemProp="name"
-                                        className="text-ivory font-semibold text-base leading-snug flex-1"
+                                        className="font-heading font-bold text-lg md:text-xl leading-tight flex-1 uppercase tracking-tight"
                                     >
                                         {faq.q}
                                     </h3>
-                                    <ChevronDown
-                                        size={20}
-                                        className={`text-champagne flex-shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
-                                    />
+                                    <div className={`shrink-0 w-8 h-8 border-2 flex items-center justify-center transition-all duration-300 ${openIndex === i
+                                        ? 'border-signal-red bg-signal-red text-onyx rotate-180'
+                                        : isDark
+                                            ? 'border-ivory/20 text-ivory'
+                                            : 'border-onyx/20 text-onyx'
+                                        }`}>
+                                        <ChevronDown size={20} />
+                                    </div>
                                 </button>
 
                                 <div
@@ -113,16 +139,32 @@ export default function FAQSection() {
                                     itemProp="acceptedAnswer"
                                     itemType="https://schema.org/Answer"
                                 >
-                                    <p
-                                        itemProp="text"
-                                        className={`px-6 pb-6 text-ivory/60 text-sm leading-relaxed ${isRTL ? 'text-right' : 'text-left'} text-justify`}
-                                    >
-                                        {faq.a}
-                                    </p>
+                                    <div className="px-8 pb-8">
+                                        <div className="w-full h-px bg-current opacity-10 mb-6" />
+                                        <p
+                                            itemProp="text"
+                                            className="text-base md:text-lg leading-relaxed font-space opacity-80"
+                                        >
+                                            {faq.a}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+
+                    {/* Show More Link for Condensed View */}
+                    {condensed && (
+                        <div className={`mt-12 ${isRTL ? 'text-right' : 'text-left'}`}>
+                            <Link
+                                to="/contact"
+                                className="inline-flex items-center gap-2 text-signal-red font-heading font-black uppercase tracking-widest hover:translate-x-2 transition-transform duration-300"
+                            >
+                                {t.faq.viewAll}
+                                {isRTL ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

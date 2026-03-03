@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n';
 import useSEO from '../hooks/useSEO';
 import { MessageCircle, Mail, MapPin, Phone, Send, ExternalLink, Clock } from 'lucide-react';
+import FAQSection from '../components/FAQSection';
 
 
 export default function Contact() {
@@ -17,7 +18,7 @@ export default function Contact() {
         description: isRTL
             ? 'تواصل مع أرت روتس ميديا في أبو صيبع، البحرين. احصل على عرض سعر مخصص للطباعة واللافتات والهوية التجارية. واتساب: +٧٧٣ ٣٣٤٠ ٤٠٥٠. متوسط الرد: أقل من ٣٠ دقيقة.'
             : 'Contact ART ROOTS MEDIA in Abu Sayba, Bahrain. Get a custom quote for printing, signage, or branding. WhatsApp: +973 3340 4050. Average response: under 30 minutes.',
-        canonical: 'https://artroots.bh/contact',
+        canonical: 'https://artrootsmedia.com/contact',
     });
 
     useEffect(() => {
@@ -36,7 +37,7 @@ export default function Contact() {
 
     return (
         <>
-            {/* Hero */}
+            {/* Hero Section */}
             <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
                 <div className="absolute inset-0">
                     <img src="/assets/hero/hero_contact.webp" alt="Contact ART ROOTS MEDIA in Abu Sayba, Bahrain — Request a quote for printing, signage, or branding" className="w-full h-full object-cover" />
@@ -249,17 +250,19 @@ export default function Contact() {
                 </div>
             </section>
 
+            <FAQSection bgClass="bg-obsidian" isDark={true} />
+
             {/* Interactive Full-width Map */}
             <section className="relative h-[450px] md:h-[600px] w-full border-t border-ivory/10 shadow-2xl">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d223.70647688805872!2d50.5013066!3d26.2193221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49bb42652f6ae5%3A0xf0732973a53ed81f!2z2YXZitiv2YrYpyDYs9iq2YjYsSBtZWRpYSBzdG9yZQ!5e0!3m2!1sar!2sbh!4v1771807101665!5m2!1sar!2sbh"
                     width="100%"
                     height="100%"
-                    style={{ border: 0, filter: 'grayscale(1) contrast(1.2) invert(0.9) hue-rotate(180deg)' }}
+                    style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full transition-all duration-1000 ease-in-out hover:filter-none hover:scale-[1.01]"
+                    className="w-full h-full grayscale contrast-[1.2] invert-[0.9] hue-rotate-180 transition-all duration-700 ease-in-out hover:filter-none hover:scale-[1.01]"
                     title="ART ROOTS MEDIA Location"
                 ></iframe>
 

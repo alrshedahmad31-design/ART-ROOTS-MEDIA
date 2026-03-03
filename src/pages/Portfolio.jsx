@@ -78,7 +78,7 @@ export default function Portfolio() {
         description: isRTL
             ? 'شاهد مشاريعنا السابقة في البحرين: لافتات محلات، هوية تجارية، طباعة واجهات، وقص ليزر. جودة إنتاج تتحدث عن نفسها.'
             : 'Explore our latest signage, branding, and printing projects across Bahrain. From shopfronts to corporate identities, see our production quality.',
-        canonical: 'https://artroots.bh/portfolio',
+        canonical: 'https://artrootsmedia.com/portfolio',
     });
 
     useEffect(() => {

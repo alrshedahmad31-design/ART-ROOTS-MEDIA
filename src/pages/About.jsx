@@ -17,7 +17,7 @@ export default function About() {
         description: isRTL
             ? 'تأسست في البحرين عام ٢٠٢٠. أرت روتس ميديا دار إنتاج إعلاني متكاملة تقدّم طباعة ولافتات وقص ليزر وتركيب في البحرين. تعرّف على قصتنا وقيمنا.'
             : 'Founded in Bahrain in 2020. ART ROOTS MEDIA is a full-service production house: print, signage, laser cutting & brand installation. CR No. 139328-1.',
-        canonical: 'https://artroots.bh/about',
+        canonical: 'https://artrootsmedia.com/about',
     });
 
     useEffect(() => {
@@ -96,24 +96,24 @@ export default function About() {
                         {/* Founder Message */}
                         <div className={`md:w-3/5 ${isRTL ? 'text-right' : 'text-left'}`}>
                             <div className="about-animate transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
-                                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-champagne/10 border border-champagne/20 mb-6">
-                                    <Quote size={26} className="text-champagne" />
+                                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-signal-red/10 border border-signal-red/20 mb-6">
+                                    <Quote size={26} className="text-signal-red" />
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-heading font-bold text-ivory mb-6">
+                                <h2 className="text-3xl md:text-4xl font-heading font-black text-onyx mb-6 uppercase tracking-tighter">
                                     {t.about.founderTitle}
                                 </h2>
                             </div>
                             <div className="about-animate transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                 {t.about.founderMessage.split('\n\n').map((paragraph, i) => (
-                                    <p key={i} className="text-base text-ivory/50 leading-relaxed mb-4 text-justify">
+                                    <p key={i} className="text-base text-onyx/70 leading-relaxed mb-4 text-justify font-space">
                                         {paragraph}
                                     </p>
                                 ))}
-                                <div className="mt-8 border-t border-ivory/10 pt-6">
-                                    <p className="text-lg font-heading font-bold text-champagne">
+                                <div className="mt-8 border-t border-onyx/10 pt-6">
+                                    <p className="text-lg font-heading font-black text-signal-red uppercase tracking-tighter">
                                         {t.about.founderName}
                                     </p>
-                                    <p className="text-sm text-ivory/40 mt-1">
+                                    <p className="text-sm text-onyx/40 mt-1 font-mono uppercase tracking-widest">
                                         {t.about.founderRole}
                                     </p>
                                 </div>
@@ -223,18 +223,18 @@ export default function About() {
                             </div>
                         </div>
                         <div className={`md:w-1/2 ${isRTL ? 'text-right' : 'text-left'}`}>
-                            <h2 className="about-animate text-3xl md:text-4xl font-heading font-bold text-ivory mb-6 transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                            <h2 className="about-animate text-3xl md:text-4xl font-heading font-black text-onyx mb-6 uppercase tracking-tighter transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                 {t.about.workshopTitle}
                             </h2>
-                            <p className="about-animate text-base text-ivory/50 leading-relaxed mb-8 transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                            <p className="about-animate text-base text-onyx/70 leading-relaxed mb-8 transition-all duration-700 text-justify font-space" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                 {t.about.workshopDescription}
                             </p>
                             {/* Legal Info */}
-                            <div className="about-animate glass-card p-6 space-y-2 transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
-                                <h4 className="font-heading font-semibold text-ivory text-sm mb-3">{t.about.crTitle}</h4>
-                                <p className="font-mono text-xs text-ivory/40">{t.about.crNumber}</p>
-                                <p className="font-mono text-xs text-ivory/40">{t.about.crType}</p>
-                                <p className="font-mono text-xs text-ivory/40">{t.about.crDate}</p>
+                            <div className="about-animate bg-sand/50 p-6 space-y-2 border border-onyx/10 transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                                <h4 className="font-heading font-black text-onyx text-sm mb-3 uppercase tracking-widest">{t.about.crTitle}</h4>
+                                <p className="font-mono text-xs text-onyx/60">{t.about.crNumber}</p>
+                                <p className="font-mono text-xs text-onyx/60">{t.about.crType}</p>
+                                <p className="font-mono text-xs text-onyx/60">{t.about.crDate}</p>
                             </div>
                         </div>
                     </div>

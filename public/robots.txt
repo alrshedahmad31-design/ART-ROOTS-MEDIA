@@ -1,5 +1,5 @@
 # robots.txt — ART ROOTS MEDIA W.L.L
-# https://artroots.bh
+# https://artrootsmedia.com
 
 User-agent: *
 Allow: /
@@ -10,4 +10,4 @@ Disallow: /.vite/
 Disallow: /dist/
 
 # Sitemap
-Sitemap: https://artroots.bh/sitemap.xml
+Sitemap: https://artrootsmedia.com/sitemap.xml

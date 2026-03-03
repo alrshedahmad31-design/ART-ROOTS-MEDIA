@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Serif+Display&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════
-   ART ROOTS MEDIA — Midnight Luxe
+   ART ROOTS MEDIA — Brutalist Cinematic
    Global Styles & Design System
    ═══════════════════════════════════════ */
+
+/* ─── Google Fonts Import ─── */
 
 /* ─── Cairo Arabic Font (Local) ─── */
 @font-face {
@@ -41,12 +45,15 @@
 }
 
 :root {
-  --obsidian: #0D0D12;
-  --champagne: #C9A84C;
-  --ivory: #FAF8F5;
-  --slate: #2A2A35;
-  --champagne-light: #D4B95E;
-  --champagne-dark: #B89A3E;
+  --off-white: #F5F3EE;
+  --sand: #E8E4DD;
+  --onyx: #111111;
+  --signal-red: #E63B2E;
+
+  /* Legacy mapping for compatibility */
+  --obsidian: var(--onyx);
+  --ivory: var(--off-white);
+  --champagne: var(--signal-red);
 }
 
 * {
@@ -62,9 +69,9 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--obsidian);
-  color: var(--ivory);
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--off-white);
+  color: var(--onyx);
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -72,12 +79,21 @@ body {
 /* RTL Support — Cairo Arabic Font */
 [dir="rtl"],
 [dir="rtl"] * {
-  font-family: 'Cairo', 'Inter', sans-serif;
+  font-family: 'Cairo', 'Space Grotesk', sans-serif;
 }
 
-[dir="rtl"] .font-drama,
+/* Force Cairo for specific typography classes in RTL to avoid fallback issues */
+[dir="rtl"] .font-heading,
+[dir="rtl"] .font-space {
+  font-family: 'Cairo', 'Space Grotesk', sans-serif !important;
+}
+
+[dir="rtl"] .font-serif {
+  font-family: 'Cairo', 'DM Serif Display', serif !important;
+}
+
 [dir="rtl"] .font-mono {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo', 'Space Mono', monospace !important;
 }
 
 /* ─── Noise Overlay ─── */
@@ -89,244 +105,118 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.04;
+  opacity: 0.12;
+  /* Increased for Brutalist look */
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
 }
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--obsidian);
+  background: var(--off-white);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--champagne);
-  border-radius: 3px;
+  background: var(--onyx);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--champagne-light);
+  background: var(--signal-red);
 }
 
 /* ─── Selection ─── */
 ::selection {
-  background: rgba(201, 168, 76, 0.3);
-  color: var(--ivory);
+  background: var(--signal-red);
+  color: white;
 }
 
-/* ─── Typography ─── */
-.font-drama {
-  font-family: 'Playfair Display', serif;
+/* ─── Typography Utils ─── */
+.font-space {
+  font-family: 'Space Grotesk', 'Cairo', sans-serif;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Space Mono', monospace;
 }
 
-/* ─── Magnetic Button ─── */
+.font-serif {
+  font-family: 'DM Serif Display', serif;
+}
+
+.font-arabic {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ─── Brutalist Magnetic Button ─── */
 .btn-magnetic {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  border-radius: 2rem;
-  font-weight: 600;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  border-radius: 0;
+  /* Brutalist sharp edges */
+  font-weight: 700;
   font-size: 0.875rem;
-  letter-spacing: 0.025em;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   cursor: pointer;
-  border: none;
-  text-decoration: none;
-}
-
-.btn-magnetic:hover {
-  transform: scale(1.03) translateY(-1px);
-}
-
-.btn-magnetic:active {
-  transform: scale(0.98);
+  border: 1px solid var(--onyx);
 }
 
 .btn-primary {
-  background: var(--champagne);
-  color: var(--obsidian);
+  background: var(--signal-red);
+  color: white;
+  border: none;
 }
 
 .btn-primary:hover {
-  background: var(--champagne-light);
-  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.3);
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px var(--onyx);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--ivory);
-  border: 1px solid rgba(250, 248, 245, 0.2);
+  color: var(--onyx);
 }
 
 .btn-secondary:hover {
-  border-color: var(--champagne);
-  color: var(--champagne);
-  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.1);
+  background: var(--onyx);
+  color: var(--off-white);
 }
 
-/* ─── Glass Card ─── */
-.glass-card {
-  background: rgba(13, 13, 18, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(250, 248, 245, 0.08);
-  border-radius: 2rem;
+/* ─── Brutalist Gradients ─── */
+.gradient-brutalist {
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.8) 100%);
 }
 
-.glass-card-light {
-  background: rgba(250, 248, 245, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(250, 248, 245, 0.1);
-  border-radius: 2rem;
+/* ─── Paper Cards ─── */
+.paper-card {
+  background: var(--sand);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  padding: 2rem;
+  transition: transform 0.3s ease;
 }
 
-/* ─── Section Spacing ─── */
-.section-padding {
-  padding: 6rem 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .section-padding {
-    padding: 8rem 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-padding {
-    padding: 10rem 4rem;
-  }
-}
-
-/* ─── Gradient Overlays ─── */
-.gradient-hero {
-  background: linear-gradient(to top,
-      var(--obsidian) 0%,
-      rgba(13, 13, 18, 0.85) 30%,
-      rgba(13, 13, 18, 0.4) 60%,
-      rgba(13, 13, 18, 0.2) 100%);
-}
-
-/* ─── Animated Underline ─── */
-.link-hover {
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.link-hover::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--champagne);
-  transition: width 0.3s ease;
-}
-
-.link-hover:hover {
-  color: var(--champagne);
-  transform: translateY(-1px);
-}
-
-.link-hover:hover::after {
-  width: 100%;
-}
-
-[dir="rtl"] .link-hover::after {
-  left: auto;
-  right: 0;
-}
-
-/* ─── Pulsing Dot ─── */
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  position: relative;
-}
-
-.pulse-dot::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: rgba(34, 197, 94, 0.3);
-  animation: pulse-ring 2s ease-out infinite;
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-/* ─── Parallax Container ─── */
-.parallax-bg {
-  position: absolute;
-  inset: -20%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-}
-
-/* ─── Cursor Blink ─── */
-@keyframes blink {
-
-  0%,
-  50% {
-    opacity: 1;
-  }
-
-  51%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-}
-
-/* ─── Page Transitions ─── */
-.page-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.paper-card:hover {
+  transform: translateY(-4px);
 }
 
 /* ─── Container ─── */
 .container-custom {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 @media (min-width: 768px) {
   .container-custom {
-    padding: 0 3rem;
+    padding: 0 4rem;
   }
 }

@@ -236,6 +236,14 @@ const en = {
         cr: 'CR: 139328-1 — Bahrain',
         address: 'Villa 44, Building 714, Road 7325, Block 473, Abu Sayba, Bahrain',
     },
+
+    // ─── FAQ / Knowledge Base ───
+    faq: {
+        label: 'KNOWLEDGE_BASE',
+        title: 'Common Questions',
+        subtitle: 'Direct answers to the most frequently asked questions about our services in Bahrain.',
+        viewAll: 'Explore Full Knowledge Base',
+    },
 };
 
 export default en;

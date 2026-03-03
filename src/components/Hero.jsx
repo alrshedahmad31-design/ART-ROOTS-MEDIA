@@ -33,7 +33,7 @@ export default function Hero() {
     };
 
     const logoVariants = {
-        hidden: { opacity: 0, scale: 0.8, filter: 'blur(20px)' },
+        hidden: { opacity: 0, scale: 0.9, filter: 'blur(10px)' },
         visible: {
             opacity: 1,
             scale: 1,
@@ -46,13 +46,13 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative w-full min-h-[100dvh] flex items-end overflow-hidden">
+        <section className="relative w-full min-h-[100dvh] flex items-end overflow-hidden bg-onyx">
             {/* WebGL Shader Background */}
             <div className="absolute inset-0">
                 <ShaderBackground />
-                {/* Gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
-                <div className={`absolute inset-0 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-obsidian/50 to-transparent`} />
+                {/* Brutalist Gradient Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/60 to-transparent" />
+                <div className={`absolute inset-0 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-onyx/40 to-transparent`} />
             </div>
 
             {/* Content */}
@@ -64,57 +64,59 @@ export default function Hero() {
             >
                 <div className="max-w-4xl">
                     {/* Brand Identity Group */}
-                    <div className="mb-8 md:mb-10">
-                        {/* Centered/Aligned Logo with soft glow */}
-                        <motion.div variants={logoVariants} className="mb-6 relative inline-block group">
-                            <div className="absolute -inset-4 bg-champagne/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    <div className="mb-10 md:mb-14">
+                        {/* Sharper Logo Presentation */}
+                        <motion.div variants={logoVariants} className="mb-8 relative inline-block">
                             <img
                                 src="/assets/logo/Logoo.webp"
                                 alt="ART ROOTS MEDIA"
-                                className="h-16 md:h-24 w-auto relative z-10 drop-shadow-[0_0_20px_rgba(201,168,76,0.2)]"
+                                className="h-16 md:h-24 w-auto relative z-10 invert brightness-200 contrast-125"
                             />
                         </motion.div>
 
                         {/* Label */}
                         <motion.div variants={itemVariants}>
-                            <span className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-champagne/80 tracking-widest uppercase">
-                                <span className="w-8 h-[1px] bg-champagne/50 inline-block" />
+                            <span className="inline-flex items-center gap-3 font-mono text-xs md:text-sm text-off-white/80 tracking-[0.3em] uppercase">
+                                <span className="w-12 h-[2px] bg-signal-red inline-block" />
                                 ART ROOTS MEDIA
                             </span>
                         </motion.div>
                     </div>
 
                     {/* Headline */}
-                    <motion.h1 variants={itemVariants} className="mb-4 md:mb-6">
-                        <span className="block text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-ivory leading-[1.1] tracking-tight">
+                    <motion.h1 variants={itemVariants} className="mb-6 md:mb-8">
+                        <span className={`block text-4xl md:text-7xl lg:text-8xl font-bold text-off-white leading-[1] tracking-tighter uppercase mb-2 ${isRTL ? 'font-arabic' : 'font-heading'}`}>
                             {t.hero.line1}
                         </span>
-                        <span className="block text-5xl md:text-7xl lg:text-[5.5rem] font-drama italic text-champagne leading-[1.1] mt-2">
+                        <span className={`block text-5xl md:text-8xl lg:text-[7rem] text-signal-red leading-[1] ${isRTL ? 'font-arabic' : 'font-serif'}`}>
                             {t.hero.line2}
                         </span>
                     </motion.h1>
 
                     {/* Subtitle */}
-                    <motion.p variants={itemVariants} className="text-ivory/50 text-sm md:text-base lg:text-lg max-w-xl leading-relaxed mb-8 md:mb-10 text-justify whitespace-pre-line">
+                    <motion.p
+                        variants={itemVariants}
+                        className={`text-off-white/60 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-10 md:mb-14 text-justify ${isRTL ? 'font-arabic' : 'font-space'}`}
+                    >
                         {t.hero.subtitle}
                     </motion.p>
 
                     {/* CTAs */}
-                    <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4">
+                    <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6">
                         <a
                             href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.hero)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-magnetic btn-primary text-sm md:text-base px-6 md:px-8 py-3 md:py-4"
+                            className="btn-magnetic btn-primary text-sm md:text-base px-8 md:px-12 py-4 md:py-5 font-bold"
                         >
                             {t.hero.cta}
-                            {isRTL ? <ArrowLeft size={18} /> : <ArrowRight size={18} />}
+                            {isRTL ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}
                         </a>
                         <a
                             href="/portfolio"
-                            className="btn-magnetic btn-secondary text-sm md:text-base px-6 md:px-8 py-3 md:py-4"
+                            className="btn-magnetic bg-transparent border-2 border-off-white text-off-white hover:bg-off-white hover:text-onyx transition-colors duration-500 text-sm md:text-base px-8 md:px-12 py-4 md:py-5 font-bold uppercase tracking-widest"
                         >
-                            <Play size={16} />
+                            <Play size={18} fill="currentColor" />
                             {t.hero.ctaSecondary}
                         </a>
                     </motion.div>
@@ -125,9 +127,10 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2, duration: 1 }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                    className="absolute bottom-10 left-10 md:left-20 flex flex-col items-center gap-4 hidden lg:flex"
                 >
-                    <div className="w-[1px] h-12 bg-gradient-to-b from-champagne/50 to-transparent animate-pulse" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-off-white/40 vertical-text [writing-mode:vertical-lr]">Scroll</span>
+                    <div className="w-[1px] h-24 bg-gradient-to-b from-signal-red to-transparent" />
                 </motion.div>
             </motion.div>
         </section>

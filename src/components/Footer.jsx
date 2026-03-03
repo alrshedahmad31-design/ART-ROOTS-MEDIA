@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
-import { MessageCircle, Mail, MapPin, Phone } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Phone, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
     const { t, isRTL } = useLanguage();
@@ -36,56 +36,52 @@ export default function Footer() {
     const serviceLinks = t.services.list.map(s => s.title);
 
     return (
-        <footer className="bg-obsidian-light relative" style={{ borderRadius: '4rem 4rem 0 0' }}>
-            {/* Top border accent */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-champagne to-transparent" />
-
-            <div className="container-custom py-16 md:py-24">
+        <footer className="bg-onyx text-off-white relative border-t-4 border-signal-red">
+            <div className="container-custom py-24 md:py-32">
                 {/* Main Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 mb-24">
                     {/* Brand Column */}
                     <div className="lg:col-span-1">
-                        <img src="/assets/logo/Logoo.webp" alt="ART ROOTS MEDIA" className="h-16 w-auto mb-6 transition-transform duration-500 hover:scale-105" />
-                        <p className="text-ivory/50 text-sm leading-relaxed mb-6">
+                        <img
+                            src="/assets/logo/Logoo.webp"
+                            alt="ART ROOTS MEDIA"
+                            className="h-16 w-auto mb-10 invert brightness-200 contrast-125"
+                        />
+                        <p className="text-off-white/50 text-base leading-relaxed mb-10 font-space">
                             {t.footer.tagline}
                         </p>
                         {/* Contact Info */}
-                        <div className="space-y-3">
+                        <div className="space-y-6">
                             <a href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.footerContact)}`} target="_blank" rel="noopener noreferrer"
-                                className="flex items-center gap-3 text-sm text-ivory/50 hover:text-champagne transition-colors">
-                                <MessageCircle size={14} className="text-[#25D366]" />
+                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group">
+                                <MessageCircle size={16} className="text-signal-red" />
                                 <span dir="ltr">{t.contact.whatsappNumber}</span>
+                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
                             <a href={`tel:${t.contact.phoneRaw}`}
-                                className="flex items-center gap-3 text-sm text-ivory/50 hover:text-champagne transition-colors">
-                                <Phone size={14} />
+                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group">
+                                <Phone size={16} />
                                 <span dir="ltr">{t.contact.phoneNumber}</span>
+                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
                             <a href="mailto:azzambh78@gmail.com"
-                                className="flex items-center gap-3 text-sm text-ivory/50 hover:text-champagne transition-colors">
-                                <Mail size={14} />
+                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group">
+                                <Mail size={16} />
                                 <span>azzambh78@gmail.com</span>
+                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
-                            <div className="flex items-start gap-3 text-sm text-ivory/50">
-                                <MapPin size={14} className="mt-0.5 shrink-0" />
-                                <span>{t.contact.addressFull}</span>
-                            </div>
-                            <div className="pt-2 border-t border-ivory/5">
-                                <p className="text-[10px] uppercase tracking-wider text-ivory/30 mb-1">{t.contact.hours}</p>
-                                <p className="text-xs text-ivory/50">{t.contact.hoursDays}: <span className="text-champagne/80">{t.contact.hoursTime}</span></p>
-                            </div>
                         </div>
                     </div>
 
                     {/* Navigation Column */}
                     <div>
-                        <h4 className="font-heading font-semibold text-ivory mb-6 text-sm uppercase tracking-widest">
+                        <h4 className="font-heading font-black text-off-white mb-10 text-xs uppercase tracking-[0.4em] border-b border-off-white/10 pb-4">
                             {t.footer.navigation}
                         </h4>
-                        <ul className="space-y-3">
+                        <ul className="space-y-4">
                             {navLinks.map((link) => (
                                 <li key={link.to}>
-                                    <Link to={link.to} className="text-sm text-ivory/50 hover:text-champagne transition-colors link-hover">
+                                    <Link to={link.to} className="text-sm font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-all hover:pl-2">
                                         {link.label}
                                     </Link>
                                 </li>
@@ -95,13 +91,13 @@ export default function Footer() {
 
                     {/* Services Column */}
                     <div>
-                        <h4 className="font-heading font-semibold text-ivory mb-6 text-sm uppercase tracking-widest">
+                        <h4 className="font-heading font-black text-off-white mb-10 text-xs uppercase tracking-[0.4em] border-b border-off-white/10 pb-4">
                             {t.footer.services}
                         </h4>
-                        <ul className="space-y-3">
-                            {serviceLinks.map((service, i) => (
+                        <ul className="space-y-4">
+                            {serviceLinks.slice(0, 6).map((service, i) => (
                                 <li key={i}>
-                                    <Link to="/services" className="text-sm text-ivory/50 hover:text-champagne transition-colors link-hover">
+                                    <Link to="/services" className="text-sm font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-all hover:pl-2">
                                         {service}
                                     </Link>
                                 </li>
@@ -111,43 +107,45 @@ export default function Footer() {
 
                     {/* Legal / CTA Column */}
                     <div>
-                        <h4 className="font-heading font-semibold text-ivory mb-6 text-sm uppercase tracking-widest">
+                        <h4 className="font-heading font-black text-off-white mb-10 text-xs uppercase tracking-[0.4em] border-b border-off-white/10 pb-4">
                             {t.footer.legal}
                         </h4>
-                        <ul className="space-y-3 mb-8">
-                            <li>
-                                <span className="text-sm text-ivory/50">{t.footer.privacy}</span>
-                            </li>
-                            <li>
-                                <span className="text-sm text-ivory/50">{t.footer.terms}</span>
-                            </li>
-                        </ul>
-                        <a
-                            href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.footerCTA)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-magnetic btn-primary text-xs px-5 py-2.5"
-                        >
-                            <MessageCircle size={14} />
-                            {t.nav.quote}
-                        </a>
+                        <div className="bg-white/5 border border-white/10 p-8 mb-10">
+                            <p className="text-xs font-mono text-off-white/40 uppercase tracking-widest mb-6 leading-loose">
+                                {t.footer.privacy}<br />
+                                {t.footer.terms}
+                            </p>
+                            <a
+                                href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.footerCTA)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full btn-magnetic btn-primary !py-4 font-black uppercase tracking-[0.2em]"
+                            >
+                                {t.nav.quote}
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-ivory/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-xs text-ivory/30">{t.footer.copyright}</p>
+                <div className="border-t border-off-white/10 pt-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-off-white/30">{t.footer.copyright}</p>
 
                     {/* System Status */}
-                    <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${isOpen ? 'bg-[#25D366] shadow-[0_0_8px_rgba(37,211,102,0.5)]' : 'bg-ivory/20'} animate-pulse`} />
-                        <span className="font-mono text-[10px] text-ivory/40 uppercase tracking-wider">
-                            {isOpen ? t.footer.statusOpen : t.footer.statusClosed}
+                    <div className="flex items-center gap-4 bg-off-white/5 px-6 py-2 border border-off-white/10">
+                        <div className={`w-2 h-2 ${isOpen ? 'bg-green-500 animate-pulse' : 'bg-off-white/20'}`} />
+                        <span className="font-mono text-[10px] text-off-white/60 uppercase tracking-[0.3em]">
+                            STATUS: {isOpen ? 'OPERATIONAL' : 'OFFLINE'}
                         </span>
                     </div>
 
-                    <p className="text-xs text-ivory/30">{t.footer.cr}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-off-white/30">{t.footer.cr}</p>
                 </div>
+            </div>
+
+            {/* Brutalist Watermark */}
+            <div className="absolute bottom-0 right-0 font-black text-[15vw] leading-none text-off-white/[0.02] select-none pointer-events-none translate-y-1/2">
+                ROOTS
             </div>
         </footer>
     );

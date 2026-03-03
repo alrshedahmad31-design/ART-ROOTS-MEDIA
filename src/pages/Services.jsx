@@ -11,6 +11,7 @@ const serviceImages = [
     '/assets/services/brand-identity.webp',
     '/assets/services/laser-and-cnc.webp',
     '/assets/services/gifts-and-merchandise.webp',
+    '/assets/services/website-design.webp',
 ];
 
 export default function Services() {
@@ -24,7 +25,7 @@ export default function Services() {
         description: isRTL
             ? 'خدمات إنتاج شاملة في البحرين: طباعة كبيرة الحجم، لافتات وواجهات محلات، هوية تجارية، قص ليزر وCNC، وهدايا دعائية. ضمان جودة على كل طلب.'
             : 'Full-spectrum production services in Bahrain: large-format printing, custom signage & shopfronts, brand identity, laser & CNC cutting, and corporate gifts. Quality guaranteed on every order.',
-        canonical: 'https://artroots.bh/services',
+        canonical: 'https://artrootsmedia.com/services',
     });
 
     useEffect(() => {

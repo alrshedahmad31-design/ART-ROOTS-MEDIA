@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n';
 import { Menu, X, Globe } from 'lucide-react';
 
@@ -32,79 +33,98 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
           ${scrolled
-                        ? 'bg-obsidian/70 backdrop-blur-xl border border-ivory/10 shadow-2xl shadow-black/20'
-                        : 'bg-transparent border border-transparent'
+                        ? 'bg-onyx/90 backdrop-blur-md border-b border-off-white/10 shadow-xl'
+                        : 'bg-transparent border-b border-transparent'
                     }
-          rounded-full px-4 md:px-6 py-2 md:py-3 w-[95%] md:w-auto md:min-w-[700px] lg:min-w-[800px]`}
+          px-6 py-4 md:py-6 w-full`}
             >
-                <div className="flex items-center justify-between w-full gap-4 md:gap-8">
-                    {/* Logo */}
-                    <Link to="/" className="flex items-center gap-2 shrink-0">
-                        <img src="/assets/logo/Logoo.webp" alt="ART ROOTS MEDIA" className="h-10 md:h-16 w-auto transition-transform duration-500 hover:scale-105" />
+                <div className="container-custom flex items-center justify-between w-full gap-8">
+                    {/* Logo Section */}
+                    <Link to="/" className="flex items-center gap-4 shrink-0 group">
+                        <div className="relative overflow-hidden">
+                            <img
+                                src="/assets/logo/Logoo.webp"
+                                alt="ART ROOTS MEDIA"
+                                className={`h-10 md:h-14 w-auto transition-all duration-700 ${scrolled ? 'invert brightness-125' : 'invert brightness-200'}`}
+                            />
+                        </div>
                     </Link>
 
-                    {/* Desktop Nav Links */}
-                    <div className="hidden md:flex items-center gap-6">
+                    {/* Desktop Navigation */}
+                    <div className="hidden lg:flex items-center gap-10">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.to}
                                 to={link.to}
-                                className={`link-hover text-sm font-medium transition-colors
-                  ${location.pathname === link.to ? 'text-champagne' : 'text-ivory/70 hover:text-ivory'}`}
+                                className={`relative font-heading text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300
+                  ${location.pathname === link.to ? 'text-signal-red' : 'text-off-white/70 hover:text-off-white'}`}
                             >
                                 {link.label}
+                                <AnimatePresence>
+                                    {location.pathname === link.to && (
+                                        <motion.div
+                                            layoutId="activeNav"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="absolute -bottom-2 left-0 right-0 h-0.5 bg-signal-red"
+                                        />
+                                    )}
+                                </AnimatePresence>
                             </Link>
                         ))}
                     </div>
 
-                    {/* Right Side */}
-                    <div className="flex items-center gap-2 md:gap-3">
-                        {/* Language Toggle */}
+                    {/* Action Group */}
+                    <div className="flex items-center gap-4">
+                        {/* Language Selector */}
                         <button
                             onClick={toggleLang}
-                            className="flex items-center gap-1.5 text-xs md:text-sm text-ivory/60 hover:text-champagne transition-colors px-2 py-1 rounded-full hover:bg-white/5"
-                            aria-label="Switch language"
+                            className="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-off-white/50 hover:text-signal-red transition-colors font-mono"
                         >
-                            <Globe size={14} className="md:size-4" />
+                            <Globe size={14} />
                             <span>{t.nav.langSwitch}</span>
                         </button>
 
-                        {/* CTA Desktop */}
+                        {/* Brutalist Button */}
                         <a
                             href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.navbar)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hidden sm:inline-flex btn-magnetic btn-primary text-[10px] md:text-xs px-4 md:px-5 py-1.5 md:py-2"
+                            className="btn-magnetic btn-primary !px-6 !py-2.5 !text-[10px] font-black uppercase tracking-[0.2em]"
                         >
                             {t.nav.quote}
                         </a>
 
-                        {/* Dropdown Toggle (Visible on small screens) */}
+                        {/* Mobile Toggle */}
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
-                            className="flex md:hidden items-center justify-center p-2 text-ivory/60 hover:text-champagne transition-colors"
+                            className="flex lg:hidden items-center justify-center p-2 text-off-white/70 hover:text-signal-red transition-colors"
                         >
-                            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+                            {menuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
 
-                {/* Dropdown Menu (Mobile Only) */}
-                <div className={`absolute top-[120%] left-0 right-0 md:hidden transition-all duration-300 transform ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
-                    <div className="bg-obsidian/90 backdrop-blur-2xl border border-ivory/10 rounded-[2rem] p-4 shadow-2xl overflow-hidden">
-                        <div className="flex flex-col gap-2">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.to}
-                                    to={link.to}
-                                    className={`px-6 py-4 rounded-2xl text-lg font-medium transition-all ${location.pathname === link.to ? 'bg-champagne/10 text-champagne' : 'text-ivory/70 hover:bg-white/5 hover:text-ivory'}`}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
+                {/* Brutalist Mobile Overlay */}
+                <div
+                    className={`lg:hidden fixed inset-0 top-0 bg-onyx z-[-1] flex flex-col pt-32 px-10 transition-transform duration-700 ease-[0.16,1,0.3,1] 
+                    ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
+                >
+                    <div className="flex flex-col gap-8">
+                        {navLinks.map((link, idx) => (
+                            <Link
+                                key={link.to}
+                                to={link.to}
+                                className={`text-4xl md:text-6xl font-heading font-black uppercase tracking-tighter transition-all duration-500
+                                ${location.pathname === link.to ? 'text-signal-red' : 'text-off-white hover:pl-4 hover:text-signal-red'}`}
+                                style={{ transitionDelay: `${idx * 50}ms` }}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </nav>

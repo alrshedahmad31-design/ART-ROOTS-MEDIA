@@ -4,9 +4,9 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://artroots.bh/</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://artroots.bh/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://artroots.bh/?lang=en"/>
+    <loc>https://artrootsmedia.com/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://artrootsmedia.com/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://artrootsmedia.com/?lang=en"/>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,9 +14,9 @@
 
   <!-- Services -->
   <url>
-    <loc>https://artroots.bh/services</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://artroots.bh/services?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://artroots.bh/services?lang=en"/>
+    <loc>https://artrootsmedia.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://artrootsmedia.com/services?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://artrootsmedia.com/services?lang=en"/>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -24,9 +24,9 @@
 
   <!-- Portfolio -->
   <url>
-    <loc>https://artroots.bh/portfolio</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://artroots.bh/portfolio?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://artroots.bh/portfolio?lang=en"/>
+    <loc>https://artrootsmedia.com/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://artrootsmedia.com/portfolio?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://artrootsmedia.com/portfolio?lang=en"/>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -34,9 +34,9 @@
 
   <!-- About -->
   <url>
-    <loc>https://artroots.bh/about</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://artroots.bh/about?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://artroots.bh/about?lang=en"/>
+    <loc>https://artrootsmedia.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://artrootsmedia.com/about?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://artrootsmedia.com/about?lang=en"/>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -44,9 +44,9 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://artroots.bh/contact</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://artroots.bh/contact?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://artroots.bh/contact?lang=en"/>
+    <loc>https://artrootsmedia.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://artrootsmedia.com/contact?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://artrootsmedia.com/contact?lang=en"/>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
