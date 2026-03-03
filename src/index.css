@@ -91,6 +91,11 @@ html {
 body {
   font-family: 'Sora', 'Cairo', system-ui, sans-serif;
   background: rgb(var(--arm-black-0));
+  background-image: url('/assets/hero/cardstock.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: rgb(var(--arm-white));
   overflow-x: hidden;
   min-height: 100vh;
