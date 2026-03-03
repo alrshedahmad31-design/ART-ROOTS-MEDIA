@@ -1,15 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════
-   ART ROOTS MEDIA — Brutalist Cinematic
-   Global Styles & Design System
+   ART ROOTS MEDIA — Industrial Luxe Precision
+   Single Source of Truth Token System
    ═══════════════════════════════════════ */
 
-/* ─── Google Fonts Import ─── */
+/* ─── ARM Design Tokens ─── */
+:root {
+  --arm-black-0: 14 14 15;
+  --arm-black-1: 26 26 34;
+
+  --arm-red-0: 196 22 28;
+  --arm-red-1: 224 31 38;
+
+  --arm-white: 255 255 255;
+  --arm-gray: 189 189 189;
+
+  --arm-gold: 198 167 94;
+
+  --arm-divider: 255 255 255;
+  --arm-overlay: 0 0 0;
+
+  --arm-radius-4: 4px;
+  --arm-radius-8: 8px;
+  --arm-radius-12: 12px;
+
+  --arm-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --arm-fast: 200ms;
+  --arm-med: 300ms;
+
+  /* Legacy compat (components still referencing old vars) */
+  --off-white: #FFFFFF;
+  --sand: #1A1A22;
+  --onyx: #0E0E0F;
+  --signal-red: #C4161C;
+  --obsidian: #0E0E0F;
+  --ivory: #FFFFFF;
+  --champagne: #C4161C;
+}
 
 /* ─── Cairo Arabic Font (Local) ─── */
 @font-face {
@@ -44,18 +76,6 @@
   font-display: swap;
 }
 
-:root {
-  --off-white: #F5F3EE;
-  --sand: #E8E4DD;
-  --onyx: #111111;
-  --signal-red: #E63B2E;
-
-  /* Legacy mapping for compatibility */
-  --obsidian: var(--onyx);
-  --ivory: var(--off-white);
-  --champagne: var(--signal-red);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -69,9 +89,9 @@ html {
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background-color: var(--off-white);
-  color: var(--onyx);
+  font-family: 'Sora', 'Cairo', system-ui, sans-serif;
+  background: rgb(var(--arm-black-0));
+  color: rgb(var(--arm-white));
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -79,24 +99,23 @@ body {
 /* RTL Support — Cairo Arabic Font */
 [dir="rtl"],
 [dir="rtl"] * {
-  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+  font-family: 'Cairo', 'Sora', system-ui, sans-serif;
 }
 
-/* Force Cairo for specific typography classes in RTL to avoid fallback issues */
 [dir="rtl"] .font-heading,
 [dir="rtl"] .font-space {
-  font-family: 'Cairo', 'Space Grotesk', sans-serif !important;
+  font-family: 'Cairo', 'Sora', system-ui, sans-serif !important;
 }
 
 [dir="rtl"] .font-serif {
-  font-family: 'Cairo', 'DM Serif Display', serif !important;
+  font-family: 'Cairo', 'Sora', serif !important;
 }
 
 [dir="rtl"] .font-mono {
-  font-family: 'Cairo', 'Space Mono', monospace !important;
+  font-family: 'Cairo', 'JetBrains Mono', monospace !important;
 }
 
-/* ─── Noise Overlay (feTurbulence 0.05 opacity per spec) ─── */
+/* ─── Noise Overlay (0.05 opacity) ─── */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -116,34 +135,35 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--off-white);
+  background: rgb(var(--arm-black-0));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--onyx);
+  background: rgb(var(--arm-black-1));
+  border-radius: var(--arm-radius-4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--signal-red);
+  background: rgb(var(--arm-red-0));
 }
 
 /* ─── Selection ─── */
 ::selection {
-  background: var(--signal-red);
+  background: rgb(var(--arm-red-0));
   color: white;
 }
 
 /* ─── Typography Utils ─── */
 .font-space {
-  font-family: 'Space Grotesk', 'Cairo', sans-serif;
+  font-family: 'Sora', 'Cairo', sans-serif;
 }
 
 .font-mono {
-  font-family: 'Space Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .font-serif {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Sora', 'Cairo', serif;
 }
 
 .font-arabic {
@@ -158,17 +178,17 @@ body {
   justify-content: center;
   gap: 0.75rem;
   padding: 1rem 2.5rem;
-  border-radius: 0;
+  border-radius: var(--arm-radius-8);
   font-weight: 700;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid var(--onyx);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    color 0.3s ease;
+  border: 1px solid rgb(var(--arm-divider) / 0.1);
+  transition: transform var(--arm-med) var(--arm-ease),
+    box-shadow var(--arm-med) var(--arm-ease),
+    color var(--arm-fast) ease;
   z-index: 1;
 }
 
@@ -182,8 +202,9 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
+  border-radius: inherit;
   transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.5s var(--arm-ease);
 }
 
 .btn-magnetic:hover::before {
@@ -191,61 +212,63 @@ body {
 }
 
 .btn-primary {
-  background: var(--signal-red);
+  background: rgb(var(--arm-red-0));
   color: white;
   border: none;
 }
 
 .btn-primary::before {
-  background: var(--onyx);
+  background: rgb(var(--arm-red-1));
 }
 
 .btn-primary:hover {
-  transform: scale(1.03) translate(-4px, -4px);
-  box-shadow: 8px 8px 0px var(--onyx);
-  color: var(--signal-red);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196, 22, 28, 0.3);
+  color: white;
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--onyx);
+  color: rgb(var(--arm-white));
+  border: 1px solid rgb(var(--arm-divider) / 0.15);
 }
 
 .btn-secondary::before {
-  background: var(--onyx);
+  background: rgb(var(--arm-white) / 0.1);
 }
 
 .btn-secondary:hover {
-  color: var(--off-white);
+  color: rgb(var(--arm-white));
 }
 
 /* ─── Cinematic Link Lift ─── */
 .link-lift {
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    color 0.3s ease;
+  transition: transform var(--arm-fast) var(--arm-ease),
+    color var(--arm-fast) ease;
 }
 
 .link-lift:hover {
   transform: translateY(-1px);
 }
 
-/* ─── Brutalist Gradients ─── */
+/* ─── Gradients ─── */
 .gradient-brutalist {
-  background: linear-gradient(to bottom, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.8) 100%);
+  background: linear-gradient(to bottom, rgba(14, 14, 15, 0) 0%, rgba(14, 14, 15, 0.8) 100%);
 }
 
-/* ─── Paper Cards ─── */
+/* ─── Paper Cards (dark surface) ─── */
 .paper-card {
-  background: var(--sand);
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgb(var(--arm-black-1));
+  border: 1px solid rgb(var(--arm-divider) / 0.06);
   padding: 2rem;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: var(--arm-radius-12);
+  transition: transform var(--arm-med) var(--arm-ease),
+    box-shadow var(--arm-med) var(--arm-ease);
 }
 
 .paper-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* ─── GSAP Animation Helpers ─── */
@@ -261,14 +284,14 @@ body {
 
 /* ─── Container ─── */
 .container-custom {
-  max-width: 1440px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
 @media (min-width: 768px) {
   .container-custom {
-    padding: 0 4rem;
+    padding: 0 2rem;
   }
 }
 
@@ -285,26 +308,34 @@ body {
 
 /* ─── Hero Gradient (Sub-pages) ─── */
 .gradient-hero {
-  background: linear-gradient(to top, var(--onyx) 0%, rgba(17, 17, 17, 0.5) 50%, transparent 100%);
+  background: linear-gradient(to top, rgb(var(--arm-black-0)) 0%, rgba(14, 14, 15, 0.5) 50%, transparent 100%);
 }
 
-/* ─── Drama Font (Serif Italic) ─── */
+/* ─── Drama Font ─── */
 .font-drama {
-  font-family: 'DM Serif Display', 'Cairo', serif;
+  font-family: 'Sora', 'Cairo', serif;
   font-style: italic;
 }
 
-/* ─── Glass Card (Dark) ─── */
+/* ─── Glass Card (Dark Surface) ─── */
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 1.5rem;
+  background: rgb(var(--arm-black-1) / 0.6);
+  border: 1px solid rgb(var(--arm-divider) / 0.06);
+  border-radius: var(--arm-radius-12);
   backdrop-filter: blur(8px);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    border-color 0.4s ease;
+  transition: transform var(--arm-med) var(--arm-ease),
+    border-color var(--arm-med) ease;
 }
 
 .glass-card-light:hover {
-  border-color: rgba(230, 59, 46, 0.3);
+  border-color: rgb(var(--arm-red-0) / 0.3);
   transform: translateY(-2px);
+}
+
+/* ─── Gold Accent Bar ─── */
+.accent-bar {
+  display: block;
+  height: 2px;
+  width: 3.5rem;
+  background: rgb(var(--arm-gold));
 }
