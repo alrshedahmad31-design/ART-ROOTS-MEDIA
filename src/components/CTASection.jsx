@@ -46,7 +46,7 @@ export default function CTASection() {
                     {/* Right Side: Visual Accent */}
                     <div className="hidden lg:flex flex-col items-center justify-center p-12 border-2 border-divider/5 bg-surface-0/50 rounded-md">
                         <MessageCircle className="text-action mb-6" size={48} />
-                        <div className="font-mono text-[10px] text-text-2/50 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr]">
+                        <div className="font-mono text-[10px] text-text-2/90 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr]">
                             REACH_OUT_NOW_SYSTEM_ACTIVE
                         </div>
                     </div>

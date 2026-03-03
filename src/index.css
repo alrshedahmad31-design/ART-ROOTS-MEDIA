@@ -34,13 +34,21 @@
   --arm-med: 300ms;
 
   /* Legacy compat (components still referencing old vars) */
-  --off-white: #FFFFFF;
-  --sand: #1A1A22;
-  --onyx: #0E0E0F;
-  --signal-red: #C4161C;
-  --obsidian: #0E0E0F;
-  --ivory: #FFFFFF;
-  --champagne: #C4161C;
+  /* New ARM Industrial Luxe Tokens */
+  --arm-black-0: 14 14 15;
+  --arm-black-1: 22 22 26;
+  --arm-white: 255 255 255;
+  --arm-red-0: 196 22 28;
+  --arm-red-1: 230 59 46;
+  /* Utility Map */
+  --arm-surface-0: var(--arm-black-0);
+  --arm-surface-1: var(--arm-black-1);
+  --arm-text-1: var(--arm-white);
+  --arm-text-2: var(--arm-white);
+  /* Boosted contrast */
+  --arm-action: var(--arm-red-0);
+  --arm-accent: var(--arm-red-1);
+  --arm-divider: var(--arm-white);
 }
 
 /* ─── Cairo Arabic Font (Local) ─── */
@@ -106,7 +114,8 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(14, 14, 15, 0.85);
+  background: rgba(14, 14, 15, 0.92);
+  /* Darkened from 0.85 */
   z-index: 0;
   pointer-events: none;
 }
@@ -174,7 +183,8 @@ h3,
 h4,
 h5,
 h6 {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  /* Bolstered shadow */
 }
 
 p,
@@ -182,7 +192,8 @@ span,
 a,
 li,
 label {
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  /* Bolstered shadow */
 }
 
 .font-mono {

@@ -83,7 +83,7 @@ export default function Philosophy() {
                         <p className="text-lg md:text-xl text-text-2/80 leading-relaxed max-w-2xl font-sans">
                             <WordReveal text={t.philosophy.description} />
                         </p>
-                        <div className="font-mono text-[10px] text-text-2/50 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
+                        <div className="font-mono text-[10px] text-text-2/90 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
                             EST_QUALITY_SYSTEMS
                         </div>
                     </div>

@@ -70,7 +70,7 @@ export default function Services() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">
                         {t.services.heroTitle}
                     </h1>
-                    <p className="text-lg md:text-xl text-text-1/50 max-w-xl text-justify">
+                    <p className="text-lg md:text-xl text-text-1/90 max-w-xl text-justify">
                         {t.services.heroSubtitle}
                     </p>
                 </div>
@@ -99,7 +99,7 @@ export default function Services() {
                                                     alt={service.title}
                                                     className="w-full h-64 md:h-full object-cover hover:scale-105 transition-transform duration-700"
                                                 />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 to-transparent" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-surface-0/60 to-transparent" />
                                                 <div className="absolute bottom-4 left-4 right-4">
                                                     <span className="font-mono text-xs text-action uppercase tracking-wider">
                                                         {String(i + 1).padStart(2, '0')}
@@ -113,14 +113,14 @@ export default function Services() {
                                                     <div className="w-10 h-10 rounded-xl bg-action/10 flex items-center justify-center">
                                                         <Icon size={20} className="text-action" />
                                                     </div>
-                                                    <span className="font-sans italic italic text-sm text-text-1/40">{service.subtitle}</span>
+                                                    <span className="font-sans italic italic text-sm text-text-1/80">{service.subtitle}</span>
                                                 </div>
 
                                                 <h3 className="text-2xl md:text-3xl font-sans font-bold text-text-1 mb-4">
                                                     {service.title}
                                                 </h3>
 
-                                                <p className="text-sm md:text-base text-text-1/50 leading-relaxed mb-6 text-justify">
+                                                <p className="text-sm md:text-base text-text-1/80 leading-relaxed mb-6 text-justify">
                                                     {service.description}
                                                 </p>
 
@@ -129,7 +129,7 @@ export default function Services() {
                                                     {service.details.map((detail, j) => (
                                                         <span
                                                             key={j}
-                                                            className="px-3 py-1.5 text-xs font-mono bg-surface-1/30 text-text-1/50 rounded-full border border-divider/5"
+                                                            className="px-3 py-1.5 text-xs font-mono bg-surface-1/30 text-text-1/90 rounded-full border border-divider/5"
                                                         >
                                                             {detail}
                                                         </span>

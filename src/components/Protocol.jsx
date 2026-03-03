@@ -215,7 +215,7 @@ export default function Protocol() {
                                     </div>
 
                                     {/* Decorative Element */}
-                                    <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-text-2/50 uppercase tracking-widest hidden lg:block">
+                                    <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-text-2/90 uppercase tracking-widest hidden lg:block">
                                         PRT_SYS_LVL_{i + 1}
                                     </div>
                                 </div>

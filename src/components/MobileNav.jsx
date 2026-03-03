@@ -34,18 +34,15 @@ export default function MobileNav() {
                         <Link
                             key={item.to}
                             to={item.to}
-                            className={`flex flex-col items-center justify-center h-[48px] px-3 transition-all duration-300 relative group rounded-full ${isActive ? 'bg-off-white/5' : ''}`}
+                            className={`flex flex-col items-center justify-center h-[48px] px-3 transition-all duration-300 relative group rounded-full ${isActive ? 'bg-text-1/5' : ''}`}
                         >
-                            <div className={`flex flex-col items-center gap-1 ${isActive ? 'text-signal-red' : 'text-off-white/40'}`}>
-                                <Icon size={18} className={`transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
-                                <span className="text-[10px] font-black tracking-[0.05em] uppercase">
-                                    {item.label}
-                                </span>
+                            <div className={`flex flex-col items-center gap-1 ${isActive ? 'text-action' : 'text-text-1/90'}`}>
+                                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
                             </div>
 
                             {/* Active Indicator Bar */}
                             {isActive && (
-                                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-signal-red rounded-full shadow-[0_0_8px_rgba(230,59,46,0.8)]" />
+                                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-action rounded-full shadow-[0_0_8px_rgba(var(--arm-red-0),0.8)]" />
                             )}
                         </Link>
                     );

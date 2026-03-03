@@ -71,12 +71,12 @@ export default function FAQSection({
     const activeTitle = title || t.faq.title;
     const activeSubtitle = subtitle || t.faq.subtitle;
 
-    const defaultBg = condensed ? 'bg-off-white' : 'bg-sand/10';
+    const defaultBg = condensed ? 'bg-surface-1/20' : 'bg-surface-0/50';
     const finalBg = bgClass || defaultBg;
 
     return (
         <section
-            className={`py-24 md:py-32 ${finalBg} ${isDark ? 'text-ivory' : 'text-onyx'}`}
+            className={`py-24 md:py-32 ${finalBg} text-text-1`}
             aria-label={isRTL ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
         >
             <div className="container-custom">
@@ -84,15 +84,15 @@ export default function FAQSection({
                     {/* Section Header */}
                     <div className={`mb-20 ${isRTL ? 'text-right' : 'text-left'}`}>
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="w-12 h-[2px] bg-signal-red" />
-                            <span className={`font-mono text-xs font-bold uppercase tracking-[0.4em] ${isDark ? 'text-ivory/40' : 'text-onyx/40'}`}>
+                            <div className="w-12 h-[2px] bg-action" />
+                            <span className="font-mono text-xs font-bold uppercase tracking-[0.4em] text-text-2/80">
                                 {activeLabel}
                             </span>
                         </div>
-                        <h2 className={`text-4xl md:text-6xl font-heading font-black mb-8 uppercase tracking-tighter ${isDark ? 'text-ivory' : 'text-onyx'}`}>
+                        <h2 className="text-4xl md:text-6xl font-sans font-black mb-8 uppercase tracking-tighter text-text-1">
                             {activeTitle}
                         </h2>
-                        <p className={`text-lg leading-relaxed max-w-2xl font-space ${isDark ? 'text-ivory/60' : 'text-onyx/60'}`}>
+                        <p className="text-lg leading-relaxed max-w-2xl font-sans text-text-1/80">
                             {activeSubtitle}
                         </p>
                     </div>
@@ -106,10 +106,8 @@ export default function FAQSection({
                                 itemProp="mainEntity"
                                 itemType="https://schema.org/Question"
                                 className={`border-2 transition-all duration-300 ${openIndex === i
-                                    ? 'border-signal-red bg-onyx text-off-white'
-                                    : isDark
-                                        ? 'border-ivory/10 bg-ivory/5 text-ivory hover:border-ivory/30'
-                                        : 'border-onyx/10 bg-sand/20 text-onyx hover:border-onyx/30'
+                                    ? 'border-action bg-surface-1 text-text-1'
+                                    : 'border-divider/10 bg-surface-1/20 text-text-2/90 hover:border-action/30 hover:text-text-1'
                                     }`}
                             >
                                 <button
@@ -124,10 +122,8 @@ export default function FAQSection({
                                         {faq.q}
                                     </h3>
                                     <div className={`shrink-0 w-8 h-8 border-2 flex items-center justify-center transition-all duration-300 ${openIndex === i
-                                        ? 'border-signal-red bg-signal-red text-onyx rotate-180'
-                                        : isDark
-                                            ? 'border-ivory/20 text-ivory'
-                                            : 'border-onyx/20 text-onyx'
+                                        ? 'border-action bg-action text-surface-0 rotate-180'
+                                        : 'border-divider/20 text-text-2/80'
                                         }`}>
                                         <ChevronDown size={20} />
                                     </div>
@@ -158,7 +154,7 @@ export default function FAQSection({
                         <div className={`mt-12 ${isRTL ? 'text-right' : 'text-left'}`}>
                             <Link
                                 to="/contact"
-                                className="inline-flex items-center gap-2 text-signal-red font-heading font-black uppercase tracking-widest hover:translate-x-2 transition-transform duration-300"
+                                className="inline-flex items-center gap-2 text-action font-sans font-black uppercase tracking-widest hover:translate-x-2 transition-transform duration-300"
                             >
                                 {t.faq.viewAll}
                                 {isRTL ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}

@@ -51,7 +51,7 @@ export default function Contact() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">
                         {t.contact.heroTitle}
                     </h1>
-                    <p className="text-lg md:text-xl text-text-1/50 max-w-xl font-sans italic italic text-justify">
+                    <p className="text-lg md:text-xl text-text-1/90 max-w-xl font-sans italic italic text-justify">
                         {t.contact.heroSubtitle}
                     </p>
                 </div>
@@ -81,7 +81,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.whatsapp}</h3>
-                                        <p className="font-mono text-sm text-text-1/50 group-hover:text-[#25D366] transition-colors" dir="ltr">
+                                        <p className="font-mono text-sm text-text-1/90 group-hover:text-[#25D366] transition-colors" dir="ltr">
                                             {t.contact.whatsappNumber}
                                         </p>
                                     </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.phone}</h3>
-                                        <p className="font-mono text-sm text-text-1/50 group-hover:text-action transition-colors" dir="ltr">
+                                        <p className="font-mono text-sm text-text-1/90 group-hover:text-action transition-colors" dir="ltr">
                                             {t.contact.phoneNumber}
                                         </p>
                                     </div>
@@ -113,7 +113,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.email}</h3>
-                                        <p className="font-mono text-sm text-text-1/50 group-hover:text-action transition-colors">
+                                        <p className="font-mono text-sm text-text-1/90 group-hover:text-action transition-colors">
                                             {t.contact.emailAddress}
                                         </p>
                                     </div>
@@ -131,7 +131,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.address}</h3>
-                                        <p className="text-sm text-text-1/50 leading-relaxed mb-2 text-justify">
+                                        <p className="text-sm text-text-1/90 leading-relaxed mb-2 text-justify">
                                             {t.contact.addressFull}
                                         </p>
                                         <span className="inline-flex items-center gap-1 text-xs text-action font-medium group-hover:underline">
@@ -149,7 +149,7 @@ export default function Contact() {
                                     <div>
                                         <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.hours}</h3>
                                         <div className="space-y-1">
-                                            <p className="text-sm text-text-1/50 leading-relaxed">
+                                            <p className="text-sm text-text-1/90 leading-relaxed">
                                                 {t.contact.hoursDays}: <span className="text-action font-medium whitespace-nowrap">{t.contact.hoursTime}</span>
                                             </p>
                                             <p className="text-xs text-text-1/30">
@@ -169,7 +169,7 @@ export default function Contact() {
 
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div>
-                                    <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formName}</label>
+                                    <label className="block text-sm font-medium text-text-1/90 mb-2">{t.contact.formName}</label>
                                     <input
                                         type="text"
                                         name="name"
@@ -183,7 +183,7 @@ export default function Contact() {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div>
-                                        <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formEmail}</label>
+                                        <label className="block text-sm font-medium text-text-1/90 mb-2">{t.contact.formEmail}</label>
                                         <input
                                             type="email"
                                             name="email"
@@ -195,7 +195,7 @@ export default function Contact() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formPhone}</label>
+                                        <label className="block text-sm font-medium text-text-1/90 mb-2">{t.contact.formPhone}</label>
                                         <input
                                             type="tel"
                                             name="phone"
@@ -209,7 +209,7 @@ export default function Contact() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formService}</label>
+                                    <label className="block text-sm font-medium text-text-1/90 mb-2">{t.contact.formService}</label>
                                     <select
                                         name="service"
                                         value={formData.service}
@@ -225,7 +225,7 @@ export default function Contact() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formMessage}</label>
+                                    <label className="block text-sm font-medium text-text-1/90 mb-2">{t.contact.formMessage}</label>
                                     <textarea
                                         name="message"
                                         value={formData.message}

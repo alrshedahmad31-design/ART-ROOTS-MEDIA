@@ -112,7 +112,7 @@ export default function Portfolio() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">
                         {t.portfolio.heroTitle}
                     </h1>
-                    <p className="text-lg md:text-xl text-text-1/50 max-w-xl mx-auto">
+                    <p className="text-lg md:text-xl text-text-1/80 max-w-xl mx-auto">
                         {t.portfolio.heroSubtitle}
                     </p>
                 </div>
@@ -128,8 +128,8 @@ export default function Portfolio() {
                                 onClick={() => setActiveFilter(key)}
                                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
                   ${activeFilter === key
-                                        ? 'bg-action text-obsidian shadow-lg shadow-champagne/20'
-                                        : 'bg-surface-1/30 text-text-1/50 border border-divider/10 hover:border-action/30 hover:text-action'
+                                        ? 'bg-action text-surface-0 shadow-lg shadow-action/20'
+                                        : 'bg-surface-1/30 text-text-1/80 border border-divider/10 hover:border-action/30 hover:text-action'
                                     }`}
                             >
                                 {label}
@@ -157,7 +157,7 @@ export default function Portfolio() {
                     onClick={() => setLightbox(null)}
                 >
                     <button
-                        className="absolute top-6 right-6 text-text-1/60 hover:text-text-1 transition-colors"
+                        className="absolute top-6 right-6 text-text-1/90 hover:text-text-1 transition-colors"
                         onClick={() => setLightbox(null)}
                     >
                         <X size={28} />

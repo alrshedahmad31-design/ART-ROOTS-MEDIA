@@ -61,7 +61,7 @@ export function CardStack({
     }
 
     if (!len) return (
-        <div className="flex items-center justify-center p-20 text-ivory/30 italic">
+        <div className="flex items-center justify-center p-20 text-text-1/30 italic">
             {isRTL ? "لا توجد أعمال في هذا القسم" : "No items found in this category"}
         </div>
     );
@@ -100,7 +100,7 @@ export function CardStack({
                         return (
                             <motion.div
                                 key={item.id || i}
-                                className={`absolute bottom-0 rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-500 ${isActive ? "shadow-champagne/10 z-50 cursor-grab active:cursor-grabbing border-2 border-champagne/20" : "z-10 border border-white/5"
+                                className={`absolute bottom-0 rounded-[32px] overflow-hidden shadow-2xl transition-shadow duration-500 ${isActive ? "shadow-action/10 z-50 cursor-grab active:cursor-grabbing border-2 border-champagne/20" : "z-10 border border-white/5"
                                     }`}
                                 style={{
                                     width: '100%',
@@ -157,17 +157,17 @@ export function CardStack({
                                     {/* Info Overlay */}
                                     <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
                                         <div className="flex items-center gap-3 mb-2">
-                                            <span className="px-3 py-1 rounded-full bg-champagne/10 border border-champagne/20 text-[10px] uppercase tracking-widest text-champagne font-mono">
+                                            <span className="px-3 py-1 rounded-full bg-action/10 border border-champagne/20 text-[10px] uppercase tracking-widest text-action font-mono">
                                                 {item.categoryLabel}
                                             </span>
                                         </div>
-                                        <h3 className="text-2xl font-heading font-bold text-ivory drop-shadow-lg">
+                                        <h3 className="text-2xl font-heading font-bold text-text-1 drop-shadow-lg">
                                             {item.title || (isRTL ? "مشروع متميز" : "Featured Project")}
                                         </h3>
 
                                         {/* Zoom Icon on Hover */}
                                         <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-ivory/10 backdrop-blur-md flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                                            <ZoomIn className="text-ivory" size={20} />
+                                            <ZoomIn className="text-text-1" size={20} />
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@ export function CardStack({
             <div className="flex items-center justify-center gap-4 mt-12">
                 <button
                     onClick={prev}
-                    className="w-12 h-12 rounded-full border border-ivory/10 flex items-center justify-center text-ivory/50 hover:text-champagne hover:border-champagne/40 transition-all active:scale-90"
+                    className="w-12 h-12 rounded-full border border-divider/10 flex items-center justify-center text-text-1/90 hover:text-action hover:border-champagne/40 transition-all active:scale-90"
                 >
                     <span className={`transform ${isRTL ? 'rotate-180' : ''}`}>←</span>
                 </button>
@@ -190,14 +190,14 @@ export function CardStack({
                         <button
                             key={idx}
                             onClick={() => setActive(idx)}
-                            className={`h-1.5 rounded-full transition-all duration-500 ${idx === active ? "w-8 bg-champagne" : "w-1.5 bg-ivory/10 hover:bg-ivory/20"
+                            className={`h-1.5 rounded-full transition-all duration-500 ${idx === active ? "w-8 bg-action" : "w-1.5 bg-ivory/10 hover:bg-ivory/20"
                                 }`}
                         />
                     ))}
                 </div>
                 <button
                     onClick={next}
-                    className="w-12 h-12 rounded-full border border-ivory/10 flex items-center justify-center text-ivory/50 hover:text-champagne hover:border-champagne/40 transition-all active:scale-90"
+                    className="w-12 h-12 rounded-full border border-divider/10 flex items-center justify-center text-text-1/90 hover:text-action hover:border-champagne/40 transition-all active:scale-90"
                 >
                     <span className={`transform ${isRTL ? 'rotate-180' : ''}`}>→</span>
                 </button>

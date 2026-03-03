@@ -70,7 +70,7 @@ export default function About() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">
                         {t.about.heroTitle}
                     </h1>
-                    <p className="text-lg md:text-xl text-text-1/50 max-w-xl font-sans italic italic text-justify">
+                    <p className="text-lg md:text-xl text-text-1/90 max-w-xl font-sans italic italic text-justify">
                         {t.about.heroSubtitle}
                     </p>
                 </div>
@@ -96,24 +96,24 @@ export default function About() {
                         {/* Founder Message */}
                         <div className={`md:w-3/5 ${isRTL ? 'text-right' : 'text-left'}`}>
                             <div className="about-animate transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
-                                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-signal-red/10 border border-signal-red/20 mb-6">
-                                    <Quote size={26} className="text-signal-red" />
+                                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-action/10 border border-action/20 mb-6">
+                                    <Quote size={26} className="text-action" />
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-sans font-black text-onyx mb-6 uppercase tracking-tighter">
+                                <h2 className="text-3xl md:text-4xl font-sans font-black text-text-1 mb-6 uppercase tracking-tighter">
                                     {t.about.founderTitle}
                                 </h2>
                             </div>
                             <div className="about-animate transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                 {t.about.founderMessage.split('\n\n').map((paragraph, i) => (
-                                    <p key={i} className="text-base text-onyx/70 leading-relaxed mb-4 text-justify font-sans">
+                                    <p key={i} className="text-base text-text-1/90 leading-relaxed mb-4 text-justify font-sans">
                                         {paragraph}
                                     </p>
                                 ))}
-                                <div className="mt-8 border-t border-onyx/10 pt-6">
-                                    <p className="text-lg font-sans font-black text-signal-red uppercase tracking-tighter">
+                                <div className="mt-8 border-t border-divider/20 pt-6">
+                                    <p className="text-lg font-sans font-black text-action uppercase tracking-tighter">
                                         {t.about.founderName}
                                     </p>
-                                    <p className="text-sm text-onyx/40 mt-1 font-mono uppercase tracking-widest">
+                                    <p className="text-sm text-text-2/80 mt-1 font-mono uppercase tracking-widest">
                                         {t.about.founderRole}
                                     </p>
                                 </div>
@@ -133,13 +133,13 @@ export default function About() {
                                 {t.about.storyTitle}
                             </h2>
                             <div className="space-y-6">
-                                <p className="about-animate text-base md:text-lg text-text-1/50 leading-relaxed transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                                <p className="about-animate text-base md:text-lg text-text-1/90 leading-relaxed transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                     {t.about.storyP1}
                                 </p>
-                                <p className="about-animate text-base md:text-lg text-text-1/50 leading-relaxed transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                                <p className="about-animate text-base md:text-lg text-text-1/90 leading-relaxed transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                     {t.about.storyP2}
                                 </p>
-                                <p className="about-animate text-base md:text-lg text-text-1/50 leading-relaxed transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                                <p className="about-animate text-base md:text-lg text-text-1/90 leading-relaxed transition-all duration-700 text-justify" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                     {t.about.storyP3}
                                 </p>
                             </div>
@@ -164,7 +164,7 @@ export default function About() {
                                             <p className="text-text-1 font-bold text-sm leading-none mb-1">
                                                 {isRTL ? 'دقة التصنيع' : 'Precision Crafted'}
                                             </p>
-                                            <p className="text-text-1/40 text-xs">
+                                            <p className="text-text-1/80 text-xs">
                                                 {isRTL ? 'من الفكرة حتى التركيب' : 'From Concept to Presence'}
                                             </p>
                                         </div>
@@ -195,7 +195,7 @@ export default function About() {
                                         <Icon size={26} className="text-action" />
                                     </div>
                                     <h3 className="text-xl font-sans font-bold text-text-1 mb-3">{value.title}</h3>
-                                    <p className="text-sm text-text-1/50 leading-relaxed text-justify">{value.description}</p>
+                                    <p className="text-sm text-text-1/90 leading-relaxed text-justify">{value.description}</p>
                                 </div>
                             );
                         })}
@@ -223,18 +223,18 @@ export default function About() {
                             </div>
                         </div>
                         <div className={`md:w-1/2 ${isRTL ? 'text-right' : 'text-left'}`}>
-                            <h2 className="about-animate text-3xl md:text-4xl font-sans font-black text-onyx mb-6 uppercase tracking-tighter transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                            <h2 className="about-animate text-3xl md:text-4xl font-sans font-black text-text-1 mb-6 uppercase tracking-tighter transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                 {t.about.workshopTitle}
                             </h2>
-                            <p className="about-animate text-base text-onyx/70 leading-relaxed mb-8 transition-all duration-700 text-justify font-sans" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                            <p className="about-animate text-base text-text-2/80 leading-relaxed mb-8 transition-all duration-700 text-justify font-sans" style={{ opacity: 0, transform: 'translateY(30px)' }}>
                                 {t.about.workshopDescription}
                             </p>
                             {/* Legal Info */}
-                            <div className="about-animate bg-sand/50 p-6 space-y-2 border border-onyx/10 transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
-                                <h4 className="font-sans font-black text-onyx text-sm mb-3 uppercase tracking-widest">{t.about.crTitle}</h4>
-                                <p className="font-mono text-xs text-onyx/60">{t.about.crNumber}</p>
-                                <p className="font-mono text-xs text-onyx/60">{t.about.crType}</p>
-                                <p className="font-mono text-xs text-onyx/60">{t.about.crDate}</p>
+                            <div className="about-animate bg-surface-0/50 p-6 space-y-2 border border-divider/20 transition-all duration-700" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+                                <h4 className="font-sans font-black text-text-1 text-sm mb-3 uppercase tracking-widest">{t.about.crTitle}</h4>
+                                <p className="font-mono text-xs text-text-2/80">{t.about.crNumber}</p>
+                                <p className="font-mono text-xs text-text-2/80">{t.about.crType}</p>
+                                <p className="font-mono text-xs text-text-2/80">{t.about.crDate}</p>
                             </div>
                         </div>
                     </div>
