@@ -34,7 +34,7 @@ export default function Footer() {
     const serviceLinks = t.services.list.map(s => s.title);
 
     return (
-        <footer className="bg-surface-1 text-text-1 relative rounded-t-[3rem] overflow-hidden">
+        <footer className="bg-surface-1 text-text-1 relative rounded-t-[2.5rem] overflow-hidden">
             <div className="container-custom py-24 md:py-32">
                 {/* Main Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 mb-24">

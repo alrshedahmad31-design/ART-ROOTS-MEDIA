@@ -193,9 +193,9 @@ export default function Protocol() {
                                 className="protocol-card transition-all duration-1000 ease-[0.16,1,0.3,1] opacity-0"
                                 style={{ transform: isRTL ? 'translateX(50px)' : 'translateX(-50px)' }}
                             >
-                                <div className="group relative overflow-hidden flex flex-col md:flex-row items-center bg-surface-1/50 border-y border-divider/5 hover:bg-surface-1 transition-colors duration-500 rounded-sm">
+                                <div className="group relative overflow-hidden flex flex-col md:flex-row items-center bg-surface-1/50 border border-divider/5 hover:bg-surface-1 transition-colors duration-500 rounded-[2.5rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)]">
                                     {/* Animation Side */}
-                                    <div className="w-full md:w-1/3 h-48 md:h-80 relative bg-surface-0/50 border-r border-divider/5">
+                                    <div className="w-full md:w-1/3 h-48 md:h-80 relative bg-surface-0/50 rounded-l-[2.5rem]">
                                         <AnimComponent />
                                     </div>
 
