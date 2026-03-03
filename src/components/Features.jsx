@@ -80,7 +80,7 @@ const TypewriterCard = memo(function TypewriterCard({ data }) {
     }, [charIndex, feedIndex, data.feeds]);
 
     return (
-        <div className="h-full flex flex-col border border-divider/5 bg-surface-0 rounded-[2.5rem] p-8 md:p-10 text-text-1 relative overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)]">
+        <div className="h-full flex flex-col border border-divider/8 bg-surface-0/95 rounded-[2.5rem] p-8 md:p-10 text-text-1 relative overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] backdrop-blur-xl">
             {/* Liquid Glass inner refraction */}
             <div className="absolute inset-0 rounded-[2.5rem] border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-[2.5rem]" />
