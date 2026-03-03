@@ -96,7 +96,7 @@ body {
   font-family: 'Cairo', 'Space Mono', monospace !important;
 }
 
-/* ─── Noise Overlay ─── */
+/* ─── Noise Overlay (feTurbulence 0.05 opacity per spec) ─── */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -105,8 +105,7 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.12;
-  /* Increased for Brutalist look */
+  opacity: 0.05;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
 }
@@ -151,7 +150,7 @@ body {
   font-family: 'Cairo', sans-serif;
 }
 
-/* ─── Brutalist Magnetic Button ─── */
+/* ─── Cinematic Magnetic Button ─── */
 .btn-magnetic {
   position: relative;
   display: inline-flex;
@@ -160,14 +159,35 @@ body {
   gap: 0.75rem;
   padding: 1rem 2.5rem;
   border-radius: 0;
-  /* Brutalist sharp edges */
   font-weight: 700;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
   cursor: pointer;
   border: 1px solid var(--onyx);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color 0.3s ease;
+  z-index: 1;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.03);
+}
+
+/* Sliding background layer */
+.btn-magnetic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-magnetic:hover::before {
+  transform: translateY(0);
 }
 
 .btn-primary {
@@ -176,9 +196,14 @@ body {
   border: none;
 }
 
+.btn-primary::before {
+  background: var(--onyx);
+}
+
 .btn-primary:hover {
-  transform: translate(-4px, -4px);
+  transform: scale(1.03) translate(-4px, -4px);
   box-shadow: 8px 8px 0px var(--onyx);
+  color: var(--signal-red);
 }
 
 .btn-secondary {
@@ -186,9 +211,22 @@ body {
   color: var(--onyx);
 }
 
-.btn-secondary:hover {
+.btn-secondary::before {
   background: var(--onyx);
+}
+
+.btn-secondary:hover {
   color: var(--off-white);
+}
+
+/* ─── Cinematic Link Lift ─── */
+.link-lift {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color 0.3s ease;
+}
+
+.link-lift:hover {
+  transform: translateY(-1px);
 }
 
 /* ─── Brutalist Gradients ─── */
@@ -201,11 +239,24 @@ body {
   background: var(--sand);
   border: 1px solid rgba(17, 17, 17, 0.1);
   padding: 2rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .paper-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.1);
+}
+
+/* ─── GSAP Animation Helpers ─── */
+.gsap-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.gsap-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 /* ─── Container ─── */
@@ -219,4 +270,41 @@ body {
   .container-custom {
     padding: 0 4rem;
   }
+}
+
+/* ─── Section Padding ─── */
+.section-padding {
+  padding: 6rem 0;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 0;
+  }
+}
+
+/* ─── Hero Gradient (Sub-pages) ─── */
+.gradient-hero {
+  background: linear-gradient(to top, var(--onyx) 0%, rgba(17, 17, 17, 0.5) 50%, transparent 100%);
+}
+
+/* ─── Drama Font (Serif Italic) ─── */
+.font-drama {
+  font-family: 'DM Serif Display', 'Cairo', serif;
+  font-style: italic;
+}
+
+/* ─── Glass Card (Dark) ─── */
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(8px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s ease;
+}
+
+.glass-card-light:hover {
+  border-color: rgba(230, 59, 46, 0.3);
+  transform: translateY(-2px);
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n';
@@ -9,14 +9,28 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
+    const heroRef = useRef(null);
 
+    // IntersectionObserver morphing logic
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 80);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        const heroEl = document.querySelector('[data-hero]') || document.querySelector('section');
+        if (!heroEl) {
+            // Fallback to scroll-based detection
+            const handleScroll = () => setScrolled(window.scrollY > 80);
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        }
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setScrolled(!entry.isIntersecting);
+            },
+            { threshold: 0.1, rootMargin: '-80px 0px 0px 0px' }
+        );
+
+        observer.observe(heroEl);
+        return () => observer.disconnect();
+    }, [location]);
 
     useEffect(() => {
         setMenuOpen(false);
@@ -32,34 +46,40 @@ export default function Navbar() {
 
     return (
         <>
+            {/* ═══ Floating Island Navbar ═══ */}
             <nav
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
-          ${scrolled
-                        ? 'bg-onyx/90 backdrop-blur-md border-b border-off-white/10 shadow-xl'
-                        : 'bg-transparent border-b border-transparent'
+                className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
+                    ${scrolled
+                        ? 'bg-off-white/80 backdrop-blur-xl border border-onyx/10 shadow-[0_8px_32px_rgba(17,17,17,0.12)] rounded-full px-6 py-3'
+                        : 'bg-onyx/40 backdrop-blur-md border border-off-white/10 rounded-full px-8 py-4'
                     }
-          px-6 py-4 md:py-6 w-full`}
+                    w-[95%] max-w-5xl`}
             >
-                <div className="container-custom flex items-center justify-between w-full gap-8">
-                    {/* Logo Section */}
-                    <Link to="/" className="flex items-center gap-4 shrink-0 group">
+                <div className="flex items-center justify-between w-full gap-6">
+                    {/* Logo */}
+                    <Link to="/" className="flex items-center gap-3 shrink-0 group link-lift">
                         <div className="relative overflow-hidden">
                             <img
                                 src="/assets/logo/Logoo.webp"
                                 alt="ART ROOTS MEDIA"
-                                className={`h-10 md:h-14 w-auto transition-all duration-700 ${scrolled ? 'invert brightness-125' : 'invert brightness-200'}`}
+                                className={`h-8 md:h-10 w-auto transition-all duration-700 ${scrolled ? '' : 'invert brightness-200'}`}
                             />
                         </div>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-10">
+                    <div className="hidden lg:flex items-center gap-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.to}
                                 to={link.to}
-                                className={`relative font-heading text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300
-                  ${location.pathname === link.to ? 'text-signal-red' : 'text-off-white/70 hover:text-off-white'}`}
+                                className={`relative font-heading text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-300 link-lift
+                                    ${location.pathname === link.to
+                                        ? 'text-signal-red'
+                                        : scrolled
+                                            ? 'text-onyx/70 hover:text-onyx'
+                                            : 'text-off-white/70 hover:text-off-white'
+                                    }`}
                             >
                                 {link.label}
                                 <AnimatePresence>
@@ -69,7 +89,7 @@ export default function Navbar() {
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
-                                            className="absolute -bottom-2 left-0 right-0 h-0.5 bg-signal-red"
+                                            className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-signal-red rounded-full"
                                         />
                                     )}
                                 </AnimatePresence>
@@ -78,22 +98,23 @@ export default function Navbar() {
                     </div>
 
                     {/* Action Group */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                         {/* Language Selector */}
                         <button
                             onClick={toggleLang}
-                            className="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-off-white/50 hover:text-signal-red transition-colors font-mono"
+                            className={`hidden sm:flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest transition-colors font-mono link-lift
+                                ${scrolled ? 'text-onyx/40 hover:text-signal-red' : 'text-off-white/40 hover:text-signal-red'}`}
                         >
-                            <Globe size={14} />
+                            <Globe size={12} />
                             <span>{t.nav.langSwitch}</span>
                         </button>
 
-                        {/* Brutalist Button */}
+                        {/* CTA Button */}
                         <a
                             href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.navbar)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-magnetic btn-primary !px-6 !py-2.5 !text-[10px] font-black uppercase tracking-[0.2em]"
+                            className="btn-magnetic btn-primary !px-5 !py-2 !text-[9px] font-black uppercase tracking-[0.15em] !rounded-full"
                         >
                             {t.nav.quote}
                         </a>
@@ -101,33 +122,57 @@ export default function Navbar() {
                         {/* Mobile Toggle */}
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
-                            className="flex lg:hidden items-center justify-center p-2 text-off-white/70 hover:text-signal-red transition-colors"
+                            className={`flex lg:hidden items-center justify-center p-2 transition-colors
+                                ${scrolled ? 'text-onyx/70 hover:text-signal-red' : 'text-off-white/70 hover:text-signal-red'}`}
                         >
-                            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {menuOpen ? <X size={22} /> : <Menu size={22} />}
                         </button>
                     </div>
                 </div>
-
-                {/* Brutalist Mobile Overlay */}
-                <div
-                    className={`lg:hidden fixed inset-0 top-0 bg-onyx z-[-1] flex flex-col pt-32 px-10 transition-transform duration-700 ease-[0.16,1,0.3,1] 
-                    ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
-                >
-                    <div className="flex flex-col gap-8">
-                        {navLinks.map((link, idx) => (
-                            <Link
-                                key={link.to}
-                                to={link.to}
-                                className={`text-4xl md:text-6xl font-heading font-black uppercase tracking-tighter transition-all duration-500
-                                ${location.pathname === link.to ? 'text-signal-red' : 'text-off-white hover:pl-4 hover:text-signal-red'}`}
-                                style={{ transitionDelay: `${idx * 50}ms` }}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
             </nav>
+
+            {/* ═══ Full-screen Mobile Overlay ═══ */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        className="lg:hidden fixed inset-0 bg-onyx z-40 flex flex-col justify-center px-10"
+                    >
+                        <div className="flex flex-col gap-6">
+                            {navLinks.map((link, idx) => (
+                                <motion.div
+                                    key={link.to}
+                                    initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: idx * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                >
+                                    <Link
+                                        to={link.to}
+                                        className={`block text-4xl md:text-6xl font-heading font-black uppercase tracking-tighter transition-all duration-300
+                                            ${location.pathname === link.to ? 'text-signal-red' : 'text-off-white hover:text-signal-red hover:pl-4'}`}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Mobile language + CTA */}
+                        <div className="mt-12 flex items-center gap-6">
+                            <button
+                                onClick={toggleLang}
+                                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-colors font-mono"
+                            >
+                                <Globe size={14} />
+                                <span>{t.nav.langSwitch}</span>
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 }

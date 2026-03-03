@@ -38,7 +38,7 @@ export default function Contact() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+            <section data-hero className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
                 <div className="absolute inset-0">
                     <img src="/assets/hero/hero_contact.webp" alt="Contact ART ROOTS MEDIA in Abu Sayba, Bahrain — Request a quote for printing, signage, or branding" className="w-full h-full object-cover" />
                     <div className="gradient-hero absolute inset-0" />

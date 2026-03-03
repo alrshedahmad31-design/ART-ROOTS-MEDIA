@@ -36,7 +36,7 @@ export default function Footer() {
     const serviceLinks = t.services.list.map(s => s.title);
 
     return (
-        <footer className="bg-onyx text-off-white relative border-t-4 border-signal-red">
+        <footer className="bg-onyx text-off-white relative rounded-t-[4rem] overflow-hidden">
             <div className="container-custom py-24 md:py-32">
                 {/* Main Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 mb-24">
@@ -53,13 +53,13 @@ export default function Footer() {
                         {/* Contact Info */}
                         <div className="space-y-6">
                             <a href={`https://wa.me/${t.contact.whatsappLink}?text=${encodeURIComponent(t.whatsappMessages.footerContact)}`} target="_blank" rel="noopener noreferrer"
-                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group">
+                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group link-lift">
                                 <MessageCircle size={16} className="text-signal-red" />
                                 <span dir="ltr">{t.contact.whatsappNumber}</span>
                                 <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
                             <a href={`tel:${t.contact.phoneRaw}`}
-                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group">
+                                className="flex items-center gap-4 text-sm font-mono uppercase tracking-widest text-off-white/60 hover:text-signal-red transition-colors group link-lift">
                                 <Phone size={16} />
                                 <span dir="ltr">{t.contact.phoneNumber}</span>
                                 <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -81,7 +81,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {navLinks.map((link) => (
                                 <li key={link.to}>
-                                    <Link to={link.to} className="text-sm font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-all hover:pl-2">
+                                    <Link to={link.to} className="text-sm font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-all hover:pl-2 link-lift">
                                         {link.label}
                                     </Link>
                                 </li>
@@ -97,7 +97,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {serviceLinks.slice(0, 6).map((service, i) => (
                                 <li key={i}>
-                                    <Link to="/services" className="text-sm font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-all hover:pl-2">
+                                    <Link to="/services" className="text-sm font-bold uppercase tracking-widest text-off-white/40 hover:text-signal-red transition-all hover:pl-2 link-lift">
                                         {service}
                                     </Link>
                                 </li>

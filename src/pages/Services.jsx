@@ -57,7 +57,7 @@ export default function Services() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+            <section data-hero className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
                 <div className="absolute inset-0">
                     <img src="/assets/hero/hero_services.webp" alt="Printing, signage and branding services in Bahrain — ART ROOTS MEDIA" className="w-full h-full object-cover" />
                     <div className="gradient-hero absolute inset-0" />

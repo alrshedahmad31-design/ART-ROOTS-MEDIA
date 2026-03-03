@@ -46,7 +46,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative w-full min-h-[100dvh] flex items-end overflow-hidden bg-onyx">
+        <section data-hero className="relative w-full min-h-[100dvh] flex items-end overflow-hidden bg-onyx">
             {/* WebGL Shader Background */}
             <div className="absolute inset-0">
                 <ShaderBackground />

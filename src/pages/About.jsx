@@ -53,7 +53,7 @@ export default function About() {
     return (
         <div ref={sectionRef}>
             {/* Hero */}
-            <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+            <section data-hero className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
                 <div className="absolute inset-0">
                     <img
                         src="/assets/hero/hero-about.webp"
