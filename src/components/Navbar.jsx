@@ -96,7 +96,7 @@ export default function Navbar() {
                         {/* Language Selector */}
                         <button
                             onClick={toggleLang}
-                            className="hidden sm:flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-text-2/40 hover:text-action transition-colors font-mono link-lift"
+                            className="hidden sm:flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-text-2/80 hover:text-action transition-colors font-mono link-lift"
                         >
                             <Globe size={12} />
                             <span>{t.nav.langSwitch}</span>
@@ -156,7 +156,7 @@ export default function Navbar() {
                         <div className="mt-12 flex items-center gap-6">
                             <button
                                 onClick={toggleLang}
-                                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-text-2/40 hover:text-action transition-colors font-mono"
+                                className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-text-2/80 hover:text-action transition-colors font-mono"
                             >
                                 <Globe size={14} />
                                 <span>{t.nav.langSwitch}</span>

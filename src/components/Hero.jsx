@@ -76,7 +76,7 @@ export default function Hero() {
 
                         {/* Label */}
                         <motion.div variants={itemVariants}>
-                            <span className="inline-flex items-center gap-3 font-mono text-xs md:text-sm text-text-1/80 tracking-[0.3em] uppercase">
+                            <span className="inline-flex items-center gap-3 font-mono text-xs md:text-sm text-text-1 tracking-[0.3em] uppercase">
                                 <span className="w-12 h-[2px] bg-action inline-block" />
                                 ART ROOTS MEDIA
                             </span>
@@ -129,7 +129,7 @@ export default function Hero() {
                     transition={{ delay: 2, duration: 1 }}
                     className="absolute bottom-10 left-10 md:left-20 flex-col items-center gap-4 hidden lg:flex"
                 >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-text-2/40 vertical-text [writing-mode:vertical-lr]">Scroll</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-text-2/80 vertical-text [writing-mode:vertical-lr]">Scroll</span>
                     <div className="w-[1px] h-24 bg-gradient-to-b from-action to-transparent" />
                 </motion.div>
             </motion.div>

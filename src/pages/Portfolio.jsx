@@ -106,7 +106,7 @@ export default function Portfolio() {
                     <div className="absolute inset-0 bg-surface-0/50" />
                 </div>
                 <div className="container-custom relative z-10 text-center">
-                    <span className="font-mono text-xs text-action/70 uppercase tracking-widest mb-4 block">
+                    <span className="font-mono text-xs text-action uppercase tracking-widest mb-4 block">
                         {isRTL ? 'معرض الأعمال' : 'Gallery'}
                     </span>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">

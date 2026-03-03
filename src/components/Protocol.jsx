@@ -174,7 +174,7 @@ export default function Protocol() {
                 <div className={`mb-20 md:mb-32 ${isRTL ? 'text-right' : 'text-left'}`}>
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-1 bg-accent" />
-                        <span className="font-mono text-xs font-bold text-text-2/40 uppercase tracking-[0.4em]">
+                        <span className="font-mono text-xs font-bold text-text-2/80 uppercase tracking-[0.4em]">
                             {t.protocol.sectionLabel}
                         </span>
                     </div>
@@ -215,7 +215,7 @@ export default function Protocol() {
                                     </div>
 
                                     {/* Decorative Element */}
-                                    <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-text-2/20 uppercase tracking-widest hidden lg:block">
+                                    <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-text-2/50 uppercase tracking-widest hidden lg:block">
                                         PRT_SYS_LVL_{i + 1}
                                     </div>
                                 </div>

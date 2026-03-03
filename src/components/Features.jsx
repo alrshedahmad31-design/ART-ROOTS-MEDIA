@@ -17,7 +17,7 @@ const ShufflerCard = memo(function ShufflerCard({ data }) {
         <div className="h-full flex flex-col bg-surface-1 border border-divider/5 rounded-[2.5rem] p-8 md:p-10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)]">
             <div className="flex items-center gap-2 mb-4">
                 <Sparkles size={18} className="text-accent" />
-                <span className="font-mono text-xs text-text-2/50 uppercase tracking-[0.2em]">01 / SYSTEM_SYNC</span>
+                <span className="font-mono text-xs text-text-2/80 uppercase tracking-[0.2em]">01 / SYSTEM_SYNC</span>
             </div>
             <h3 className="text-2xl font-sans font-bold text-text-1 mb-4 uppercase tracking-tighter">{data.title}</h3>
             <p className="text-sm text-text-2 mb-8 leading-relaxed max-w-[65ch] font-sans">{data.description}</p>
@@ -38,7 +38,7 @@ const ShufflerCard = memo(function ShufflerCard({ data }) {
                                     transition: 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
                                 }}
                             >
-                                <div className={`border rounded-md ${offset === 0 ? 'border-action bg-action text-white' : 'border-divider/10 bg-surface-0/50 text-text-2/40'} p-4 flex items-center gap-3`}
+                                <div className={`border rounded-md ${offset === 0 ? 'border-action bg-action text-white' : 'border-divider/10 bg-surface-0/50 text-text-2/80'} p-4 flex items-center gap-3`}
                                     style={{ transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                                     <div className={`w-2 h-2 rounded-full ${offset === 0 ? 'bg-white animate-pulse' : 'bg-text-2/20'}`} />
                                     <span className="font-mono text-[10px] uppercase tracking-widest leading-none">
@@ -87,7 +87,7 @@ const TypewriterCard = memo(function TypewriterCard({ data }) {
 
             <div className="flex items-center gap-2 mb-4 relative z-10">
                 <Radio size={18} className="text-action" />
-                <span className="font-mono text-xs text-text-2/40 uppercase tracking-[0.2em]">02 / LIVE_STREAM</span>
+                <span className="font-mono text-xs text-text-2/80 uppercase tracking-[0.2em]">02 / LIVE_STREAM</span>
             </div>
             <h3 className="text-2xl font-sans font-bold text-text-1 mb-4 uppercase tracking-tighter relative z-10">{data.title}</h3>
             <p className="text-sm text-text-2 mb-8 leading-relaxed max-w-[65ch] font-sans relative z-10">{data.description}</p>
@@ -100,11 +100,11 @@ const TypewriterCard = memo(function TypewriterCard({ data }) {
                             <span className="w-2 h-2 bg-action rounded-full animate-ping" />
                             <span className="font-mono text-[10px] text-action uppercase tracking-widest">Active Connection</span>
                         </div>
-                        <span className="font-mono text-[10px] text-text-2/30 uppercase tracking-widest">Signal_99%</span>
+                        <span className="font-mono text-[10px] text-text-2/60 uppercase tracking-widest">Signal_99%</span>
                     </div>
                     <div className="min-h-[100px] border border-divider/10 bg-surface-1/50 p-4 relative overflow-hidden rounded-md">
                         <div className="absolute top-0 right-0 w-12 h-12 bg-action/5 blur-2xl" />
-                        <p className="font-mono text-xs md:text-sm text-text-1/80 leading-relaxed" dir="ltr">
+                        <p className="font-mono text-xs md:text-sm text-text-1 leading-relaxed" dir="ltr">
                             {displayText}
                             <span className="cursor-blink text-action font-black">_</span>
                         </p>
@@ -153,7 +153,7 @@ const SchedulerCard = memo(function SchedulerCard({ data }) {
         <div className="h-full flex flex-col bg-surface-1 border border-divider/5 rounded-[2.5rem] p-8 md:p-10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)]">
             <div className="flex items-center gap-2 mb-4">
                 <CalendarDays size={18} className="text-accent" />
-                <span className="font-mono text-xs text-text-2/50 uppercase tracking-[0.2em]">03 / TIME_GRID</span>
+                <span className="font-mono text-xs text-text-2/80 uppercase tracking-[0.2em]">03 / TIME_GRID</span>
             </div>
             <h3 className="text-2xl font-sans font-bold text-text-1 mb-4 uppercase tracking-tighter">{data.title}</h3>
             <p className="text-sm text-text-2 mb-8 leading-relaxed max-w-[65ch] font-sans">{data.description}</p>
@@ -168,7 +168,7 @@ const SchedulerCard = memo(function SchedulerCard({ data }) {
                                 className={`h-12 border rounded-md flex flex-col items-center justify-center
                                     ${activeDay === i
                                         ? 'bg-action border-action text-white'
-                                        : 'bg-surface-0/50 border-divider/10 text-text-2/40'
+                                        : 'bg-surface-0/50 border-divider/10 text-text-2/80'
                                     }`}
                                 style={{ transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
                             >
@@ -228,7 +228,7 @@ export default function Features() {
                 <div className={`mb-20 md:mb-28 max-w-2xl ${isRTL ? 'mr-0 ml-auto text-right' : 'ml-0 mr-auto text-left'}`}>
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-12 h-1 bg-accent" />
-                        <span className="font-mono text-xs font-bold text-text-2/40 uppercase tracking-[0.4em]">
+                        <span className="font-mono text-xs font-bold text-text-2/80 uppercase tracking-[0.4em]">
                             {t.features.sectionLabel}
                         </span>
                     </div>
@@ -253,7 +253,7 @@ export default function Features() {
                     <div className="feature-card opacity-0 hidden md:flex items-center justify-center bg-surface-0/30 rounded-[2.5rem] border border-divider/5 p-10" style={{ transform: 'translateY(60px)', transition: 'all 1s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                         <div className="text-center">
                             <div className="accent-bar mx-auto mb-6" />
-                            <p className="font-mono text-[10px] text-text-2/30 uppercase tracking-[0.5em]">
+                            <p className="font-mono text-[10px] text-text-2/60 uppercase tracking-[0.5em]">
                                 PRECISION_ENGINEERING
                             </p>
                         </div>

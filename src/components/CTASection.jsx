@@ -15,7 +15,7 @@ export default function CTASection() {
                     <div className="flex-1 text-left">
                         <div className="flex items-center gap-4 mb-8">
                             <div className="w-12 h-[2px] bg-accent" />
-                            <span className="font-mono text-xs font-bold text-text-2/40 uppercase tracking-[0.4em]">INITIATE_PROTOCOL</span>
+                            <span className="font-mono text-xs font-bold text-text-2/80 uppercase tracking-[0.4em]">INITIATE_PROTOCOL</span>
                         </div>
 
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-8 leading-[0.9] uppercase tracking-tighter">
@@ -36,7 +36,7 @@ export default function CTASection() {
                                 {t.cta.button}
                                 {isRTL ? <ArrowLeft size={18} /> : <ArrowRight size={18} />}
                             </a>
-                            <div className="flex items-center gap-3 text-[10px] text-text-2/30 font-mono uppercase tracking-widest">
+                            <div className="flex items-center gap-3 text-[10px] text-text-2/60 font-mono uppercase tracking-widest">
                                 <Clock size={14} className="text-action" />
                                 {t.cta.note}
                             </div>
@@ -46,7 +46,7 @@ export default function CTASection() {
                     {/* Right Side: Visual Accent */}
                     <div className="hidden lg:flex flex-col items-center justify-center p-12 border-2 border-divider/5 bg-surface-0/50 rounded-md">
                         <MessageCircle className="text-action mb-6" size={48} />
-                        <div className="font-mono text-[10px] text-text-2/20 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr]">
+                        <div className="font-mono text-[10px] text-text-2/50 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr]">
                             REACH_OUT_NOW_SYSTEM_ACTIVE
                         </div>
                     </div>

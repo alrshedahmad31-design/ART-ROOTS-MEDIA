@@ -79,7 +79,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {navLinks.map((link) => (
                                 <li key={link.to}>
-                                    <Link to={link.to} className="text-sm font-bold uppercase tracking-widest text-text-2/40 hover:text-action transition-all hover:pl-2 link-lift">
+                                    <Link to={link.to} className="text-sm font-bold uppercase tracking-widest text-text-2/80 hover:text-action transition-all hover:pl-2 link-lift">
                                         {link.label}
                                     </Link>
                                 </li>
@@ -95,7 +95,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {serviceLinks.slice(0, 6).map((service, i) => (
                                 <li key={i}>
-                                    <Link to="/services" className="text-sm font-bold uppercase tracking-widest text-text-2/40 hover:text-action transition-all hover:pl-2 link-lift">
+                                    <Link to="/services" className="text-sm font-bold uppercase tracking-widest text-text-2/80 hover:text-action transition-all hover:pl-2 link-lift">
                                         {service}
                                     </Link>
                                 </li>
@@ -109,7 +109,7 @@ export default function Footer() {
                             {t.footer.legal}
                         </h4>
                         <div className="bg-surface-0/50 border border-divider/10 p-8 mb-10 rounded-sm">
-                            <p className="text-xs font-mono text-text-2/40 uppercase tracking-widest mb-6 leading-loose">
+                            <p className="text-xs font-mono text-text-2/80 uppercase tracking-widest mb-6 leading-loose">
                                 {t.footer.privacy}<br />
                                 {t.footer.terms}
                             </p>
@@ -127,7 +127,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-divider/10 pt-12 flex flex-col md:flex-row items-center justify-between gap-8">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-text-2/30">{t.footer.copyright}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-text-2/60">{t.footer.copyright}</p>
 
                     {/* System Status */}
                     <div className="flex items-center gap-4 bg-surface-0/50 px-6 py-2 border border-divider/10 rounded-xs">
@@ -137,7 +137,7 @@ export default function Footer() {
                         </span>
                     </div>
 
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-text-2/30">{t.footer.cr}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-text-2/60">{t.footer.cr}</p>
                 </div>
             </div>
 

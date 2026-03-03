@@ -58,11 +58,11 @@ export default function Philosophy() {
                 <div className={`max-w-5xl ${isRTL ? 'mr-0 ml-auto text-right' : 'ml-0 mr-auto text-left'}`}>
                     <div className="flex items-center gap-4 mb-10">
                         <div className="w-16 h-[2px] bg-accent" />
-                        <span className="font-mono text-xs font-bold text-text-2/40 uppercase tracking-[0.4em]">PHILOSOPHY_v2.0</span>
+                        <span className="font-mono text-xs font-bold text-text-2/80 uppercase tracking-[0.4em]">PHILOSOPHY_v2.0</span>
                     </div>
 
                     {/* Line 1: Neutral */}
-                    <p className="text-xl md:text-3xl lg:text-4xl text-text-2/40 leading-tight mb-6 font-sans">
+                    <p className="text-xl md:text-3xl lg:text-4xl text-text-2/80 leading-tight mb-6 font-sans">
                         <WordReveal text={t.philosophy.line1} />
                         <br />
                         <span className="text-text-1 font-bold uppercase tracking-tight">
@@ -71,7 +71,7 @@ export default function Philosophy() {
                     </p>
 
                     {/* Line 2: Massive */}
-                    <p className="text-xl md:text-3xl lg:text-4xl text-text-2/40 leading-tight mb-4 font-sans">
+                    <p className="text-xl md:text-3xl lg:text-4xl text-text-2/80 leading-tight mb-4 font-sans">
                         <WordReveal text={t.philosophy.line2} />
                     </p>
                     <p className="text-5xl md:text-8xl lg:text-[10rem] font-sans font-bold leading-[0.9] mb-12 tracking-tighter">
@@ -80,10 +80,10 @@ export default function Philosophy() {
 
                     {/* Description */}
                     <div className="flex flex-col md:flex-row gap-12 items-start">
-                        <p className="text-lg md:text-xl text-text-2/50 leading-relaxed max-w-2xl font-sans">
+                        <p className="text-lg md:text-xl text-text-2/80 leading-relaxed max-w-2xl font-sans">
                             <WordReveal text={t.philosophy.description} />
                         </p>
-                        <div className="font-mono text-[10px] text-text-2/20 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
+                        <div className="font-mono text-[10px] text-text-2/50 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
                             EST_QUALITY_SYSTEMS
                         </div>
                     </div>
