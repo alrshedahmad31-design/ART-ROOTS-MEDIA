@@ -42,7 +42,7 @@ export default function Philosophy() {
     );
 
     return (
-        <section ref={sectionRef} className="relative py-32 md:py-56 overflow-hidden bg-onyx">
+        <section ref={sectionRef} className="relative py-32 md:py-56 overflow-hidden bg-surface-0">
             {/* Dramatic Background */}
             <div
                 className="absolute inset-0 grayscale opacity-20 transition-opacity duration-1000"
@@ -52,38 +52,38 @@ export default function Philosophy() {
                     backgroundPosition: 'center',
                 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-onyx via-transparent to-onyx" />
+            <div className="absolute inset-0 bg-gradient-to-b from-surface-0 via-transparent to-surface-0" />
 
             <div className="container-custom relative z-10">
                 <div className={`max-w-5xl ${isRTL ? 'mr-0 ml-auto text-right' : 'ml-0 mr-auto text-left'}`}>
                     <div className="flex items-center gap-4 mb-10">
-                        <div className="w-16 h-[2px] bg-signal-red" />
-                        <span className="font-mono text-xs font-bold text-off-white/40 uppercase tracking-[0.4em]">PHILOSOPHY_v2.0</span>
+                        <div className="w-16 h-[2px] bg-accent" />
+                        <span className="font-mono text-xs font-bold text-text-2/40 uppercase tracking-[0.4em]">PHILOSOPHY_v2.0</span>
                     </div>
 
                     {/* Line 1: Neutral */}
-                    <p className="text-xl md:text-3xl lg:text-4xl text-off-white/40 leading-tight mb-6 font-space">
+                    <p className="text-xl md:text-3xl lg:text-4xl text-text-2/40 leading-tight mb-6 font-sans">
                         <WordReveal text={t.philosophy.line1} />
                         <br />
-                        <span className="text-off-white font-bold uppercase tracking-tight">
+                        <span className="text-text-1 font-bold uppercase tracking-tight">
                             <WordReveal text={t.philosophy.highlight1} />
                         </span>
                     </p>
 
                     {/* Line 2: Massive */}
-                    <p className="text-xl md:text-3xl lg:text-4xl text-off-white/40 leading-tight mb-4 font-space">
+                    <p className="text-xl md:text-3xl lg:text-4xl text-text-2/40 leading-tight mb-4 font-sans">
                         <WordReveal text={t.philosophy.line2} />
                     </p>
-                    <p className="text-5xl md:text-8xl lg:text-[10rem] font-serif leading-[0.9] mb-12 tracking-tighter">
-                        <WordReveal text={t.philosophy.highlight2} className="text-signal-red" />
+                    <p className="text-5xl md:text-8xl lg:text-[10rem] font-sans font-bold leading-[0.9] mb-12 tracking-tighter">
+                        <WordReveal text={t.philosophy.highlight2} className="text-action" />
                     </p>
 
                     {/* Description */}
                     <div className="flex flex-col md:flex-row gap-12 items-start">
-                        <p className="text-lg md:text-xl text-off-white/50 leading-relaxed max-w-2xl font-space">
+                        <p className="text-lg md:text-xl text-text-2/50 leading-relaxed max-w-2xl font-sans">
                             <WordReveal text={t.philosophy.description} />
                         </p>
-                        <div className="font-mono text-[10px] text-off-white/20 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
+                        <div className="font-mono text-[10px] text-text-2/20 uppercase tracking-[0.5em] vertical-text [writing-mode:vertical-lr] hidden md:block">
                             EST_QUALITY_SYSTEMS
                         </div>
                     </div>

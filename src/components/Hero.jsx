@@ -46,13 +46,13 @@ export default function Hero() {
     };
 
     return (
-        <section data-hero className="relative w-full min-h-[100dvh] flex items-end overflow-hidden bg-onyx">
+        <section data-hero className="relative w-full min-h-[100dvh] flex items-end overflow-hidden bg-surface-0">
             {/* WebGL Shader Background */}
             <div className="absolute inset-0">
                 <ShaderBackground />
                 {/* Brutalist Gradient Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/60 to-transparent" />
-                <div className={`absolute inset-0 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-onyx/40 to-transparent`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent" />
+                <div className={`absolute inset-0 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-surface-0/40 to-transparent`} />
             </div>
 
             {/* Content */}
@@ -76,8 +76,8 @@ export default function Hero() {
 
                         {/* Label */}
                         <motion.div variants={itemVariants}>
-                            <span className="inline-flex items-center gap-3 font-mono text-xs md:text-sm text-off-white/80 tracking-[0.3em] uppercase">
-                                <span className="w-12 h-[2px] bg-signal-red inline-block" />
+                            <span className="inline-flex items-center gap-3 font-mono text-xs md:text-sm text-text-1/80 tracking-[0.3em] uppercase">
+                                <span className="w-12 h-[2px] bg-action inline-block" />
                                 ART ROOTS MEDIA
                             </span>
                         </motion.div>
@@ -85,10 +85,10 @@ export default function Hero() {
 
                     {/* Headline */}
                     <motion.h1 variants={itemVariants} className="mb-6 md:mb-8">
-                        <span className={`block text-4xl md:text-7xl lg:text-8xl font-bold text-off-white leading-[1] tracking-tighter uppercase mb-2 ${isRTL ? 'font-arabic' : 'font-heading'}`}>
+                        <span className={`block text-4xl md:text-7xl lg:text-8xl font-bold text-text-1 leading-[1] tracking-tighter uppercase mb-2 ${isRTL ? 'font-arabic' : 'font-sans'}`}>
                             {t.hero.line1}
                         </span>
-                        <span className={`block text-5xl md:text-8xl lg:text-[7rem] text-signal-red leading-[1] ${isRTL ? 'font-arabic' : 'font-serif'}`}>
+                        <span className={`block text-5xl md:text-8xl lg:text-[7rem] text-action leading-[1] ${isRTL ? 'font-arabic' : 'font-sans'}`}>
                             {t.hero.line2}
                         </span>
                     </motion.h1>
@@ -96,7 +96,7 @@ export default function Hero() {
                     {/* Subtitle */}
                     <motion.p
                         variants={itemVariants}
-                        className={`text-off-white/60 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-10 md:mb-14 text-justify ${isRTL ? 'font-arabic' : 'font-space'}`}
+                        className={`text-text-2 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-10 md:mb-14 text-justify ${isRTL ? 'font-arabic' : 'font-sans'}`}
                     >
                         {t.hero.subtitle}
                     </motion.p>
@@ -114,7 +114,7 @@ export default function Hero() {
                         </a>
                         <a
                             href="/portfolio"
-                            className="btn-magnetic bg-transparent border-2 border-off-white text-off-white hover:bg-off-white hover:text-onyx transition-colors duration-500 text-sm md:text-base px-8 md:px-12 py-4 md:py-5 font-bold uppercase tracking-widest"
+                            className="btn-magnetic btn-secondary text-sm md:text-base px-8 md:px-12 py-4 md:py-5 font-bold uppercase tracking-widest"
                         >
                             <Play size={18} fill="currentColor" />
                             {t.hero.ctaSecondary}
@@ -127,10 +127,10 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2, duration: 1 }}
-                    className="absolute bottom-10 left-10 md:left-20 flex flex-col items-center gap-4 hidden lg:flex"
+                    className="absolute bottom-10 left-10 md:left-20 flex-col items-center gap-4 hidden lg:flex"
                 >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-off-white/40 vertical-text [writing-mode:vertical-lr]">Scroll</span>
-                    <div className="w-[1px] h-24 bg-gradient-to-b from-signal-red to-transparent" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-text-2/40 vertical-text [writing-mode:vertical-lr]">Scroll</span>
+                    <div className="w-[1px] h-24 bg-gradient-to-b from-action to-transparent" />
                 </motion.div>
             </motion.div>
         </section>

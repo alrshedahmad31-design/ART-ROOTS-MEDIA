@@ -42,29 +42,29 @@ export default function Contact() {
                 <div className="absolute inset-0">
                     <img src="/assets/hero/hero_contact.webp" alt="Contact ART ROOTS MEDIA in Abu Sayba, Bahrain — Request a quote for printing, signage, or branding" className="w-full h-full object-cover" />
                     <div className="gradient-hero absolute inset-0" />
-                    <div className="absolute inset-0 bg-obsidian/50" />
+                    <div className="absolute inset-0 bg-surface-0/50" />
                 </div>
                 <div className="container-custom relative z-10">
-                    <span className="font-mono text-xs text-champagne/70 uppercase tracking-widest mb-4 block">
+                    <span className="font-mono text-xs text-action/70 uppercase tracking-widest mb-4 block">
                         {isRTL ? 'نحن هنا' : 'Reach Out'}
                     </span>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-ivory mb-4">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">
                         {t.contact.heroTitle}
                     </h1>
-                    <p className="text-lg md:text-xl text-ivory/50 max-w-xl font-drama italic text-justify">
+                    <p className="text-lg md:text-xl text-text-1/50 max-w-xl font-sans italic italic text-justify">
                         {t.contact.heroSubtitle}
                     </p>
                 </div>
             </section>
 
             {/* Contact Content */}
-            <section className="section-padding bg-obsidian">
+            <section className="section-padding bg-surface-0">
                 <div className="container-custom">
                     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16`}>
 
                         {/* Contact Info Side */}
                         <div>
-                            <h2 className={`text-2xl md:text-3xl font-heading font-bold text-ivory mb-8 ${isRTL ? 'text-right' : 'text-left'}`}>
+                            <h2 className={`text-2xl md:text-3xl font-sans font-bold text-text-1 mb-8 ${isRTL ? 'text-right' : 'text-left'}`}>
                                 {isRTL ? 'معلومات التواصل' : 'Contact Information'}
                             </h2>
 
@@ -80,8 +80,8 @@ export default function Contact() {
                                         <MessageCircle size={22} className="text-[#25D366]" />
                                     </div>
                                     <div>
-                                        <h3 className="font-heading font-semibold text-ivory text-sm mb-1">{t.contact.whatsapp}</h3>
-                                        <p className="font-mono text-sm text-ivory/50 group-hover:text-[#25D366] transition-colors" dir="ltr">
+                                        <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.whatsapp}</h3>
+                                        <p className="font-mono text-sm text-text-1/50 group-hover:text-[#25D366] transition-colors" dir="ltr">
                                             {t.contact.whatsappNumber}
                                         </p>
                                     </div>
@@ -90,14 +90,14 @@ export default function Contact() {
                                 {/* Phone */}
                                 <a
                                     href={`tel:${t.contact.phoneRaw}`}
-                                    className="glass-card-light p-6 flex items-center gap-4 hover:border-champagne/30 transition-all duration-300 group block"
+                                    className="glass-card-light p-6 flex items-center gap-4 hover:border-action/30 transition-all duration-300 group block"
                                 >
-                                    <div className="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center shrink-0">
-                                        <Phone size={22} className="text-champagne" />
+                                    <div className="w-12 h-12 rounded-2xl bg-action/10 flex items-center justify-center shrink-0">
+                                        <Phone size={22} className="text-action" />
                                     </div>
                                     <div>
-                                        <h3 className="font-heading font-semibold text-ivory text-sm mb-1">{t.contact.phone}</h3>
-                                        <p className="font-mono text-sm text-ivory/50 group-hover:text-champagne transition-colors" dir="ltr">
+                                        <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.phone}</h3>
+                                        <p className="font-mono text-sm text-text-1/50 group-hover:text-action transition-colors" dir="ltr">
                                             {t.contact.phoneNumber}
                                         </p>
                                     </div>
@@ -106,14 +106,14 @@ export default function Contact() {
                                 {/* Email */}
                                 <a
                                     href="mailto:azzambh78@gmail.com"
-                                    className="glass-card-light p-6 flex items-center gap-4 hover:border-champagne/30 transition-all duration-300 group block"
+                                    className="glass-card-light p-6 flex items-center gap-4 hover:border-action/30 transition-all duration-300 group block"
                                 >
-                                    <div className="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center shrink-0">
-                                        <Mail size={22} className="text-champagne" />
+                                    <div className="w-12 h-12 rounded-2xl bg-action/10 flex items-center justify-center shrink-0">
+                                        <Mail size={22} className="text-action" />
                                     </div>
                                     <div>
-                                        <h3 className="font-heading font-semibold text-ivory text-sm mb-1">{t.contact.email}</h3>
-                                        <p className="font-mono text-sm text-ivory/50 group-hover:text-champagne transition-colors">
+                                        <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.email}</h3>
+                                        <p className="font-mono text-sm text-text-1/50 group-hover:text-action transition-colors">
                                             {t.contact.emailAddress}
                                         </p>
                                     </div>
@@ -124,17 +124,17 @@ export default function Contact() {
                                     href={t.contact.mapLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="glass-card-light p-6 flex items-start gap-4 hover:border-champagne/30 transition-all duration-300 group block"
+                                    className="glass-card-light p-6 flex items-start gap-4 hover:border-action/30 transition-all duration-300 group block"
                                 >
-                                    <div className="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center shrink-0">
-                                        <MapPin size={22} className="text-champagne" />
+                                    <div className="w-12 h-12 rounded-2xl bg-action/10 flex items-center justify-center shrink-0">
+                                        <MapPin size={22} className="text-action" />
                                     </div>
                                     <div>
-                                        <h3 className="font-heading font-semibold text-ivory text-sm mb-1">{t.contact.address}</h3>
-                                        <p className="text-sm text-ivory/50 leading-relaxed mb-2 text-justify">
+                                        <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.address}</h3>
+                                        <p className="text-sm text-text-1/50 leading-relaxed mb-2 text-justify">
                                             {t.contact.addressFull}
                                         </p>
-                                        <span className="inline-flex items-center gap-1 text-xs text-champagne font-medium group-hover:underline">
+                                        <span className="inline-flex items-center gap-1 text-xs text-action font-medium group-hover:underline">
                                             <ExternalLink size={12} />
                                             {t.contact.viewMap}
                                         </span>
@@ -142,17 +142,17 @@ export default function Contact() {
                                 </a>
 
                                 {/* Working Hours */}
-                                <div className="glass-card-light p-6 flex items-start gap-4 border border-ivory/5">
-                                    <div className="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center shrink-0">
-                                        <Clock size={22} className="text-champagne" />
+                                <div className="glass-card-light p-6 flex items-start gap-4 border border-divider/5">
+                                    <div className="w-12 h-12 rounded-2xl bg-action/10 flex items-center justify-center shrink-0">
+                                        <Clock size={22} className="text-action" />
                                     </div>
                                     <div>
-                                        <h3 className="font-heading font-semibold text-ivory text-sm mb-1">{t.contact.hours}</h3>
+                                        <h3 className="font-sans font-semibold text-text-1 text-sm mb-1">{t.contact.hours}</h3>
                                         <div className="space-y-1">
-                                            <p className="text-sm text-ivory/50 leading-relaxed">
-                                                {t.contact.hoursDays}: <span className="text-champagne font-medium whitespace-nowrap">{t.contact.hoursTime}</span>
+                                            <p className="text-sm text-text-1/50 leading-relaxed">
+                                                {t.contact.hoursDays}: <span className="text-action font-medium whitespace-nowrap">{t.contact.hoursTime}</span>
                                             </p>
-                                            <p className="text-xs text-ivory/30">
+                                            <p className="text-xs text-text-1/30">
                                                 {t.contact.closedDays}
                                             </p>
                                         </div>
@@ -163,45 +163,45 @@ export default function Contact() {
 
                         {/* Form Side */}
                         <div>
-                            <h2 className={`text-2xl md:text-3xl font-heading font-bold text-ivory mb-8 ${isRTL ? 'text-right' : 'text-left'}`}>
+                            <h2 className={`text-2xl md:text-3xl font-sans font-bold text-text-1 mb-8 ${isRTL ? 'text-right' : 'text-left'}`}>
                                 {t.contact.formTitle}
                             </h2>
 
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div>
-                                    <label className="block text-sm font-medium text-ivory/50 mb-2">{t.contact.formName}</label>
+                                    <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formName}</label>
                                     <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full bg-slate/20 border border-ivory/10 rounded-2xl px-5 py-3.5 text-ivory text-sm placeholder:text-ivory/20 focus:outline-none focus:border-champagne/40 transition-colors"
+                                        className="w-full bg-surface-1/20 border border-divider/10 rounded-2xl px-5 py-3.5 text-text-1 text-sm placeholder:text-text-1/20 focus:outline-none focus:border-action/40 transition-colors"
                                         placeholder={t.contact.formName}
                                     />
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div>
-                                        <label className="block text-sm font-medium text-ivory/50 mb-2">{t.contact.formEmail}</label>
+                                        <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formEmail}</label>
                                         <input
                                             type="email"
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full bg-slate/20 border border-ivory/10 rounded-2xl px-5 py-3.5 text-ivory text-sm placeholder:text-ivory/20 focus:outline-none focus:border-champagne/40 transition-colors"
+                                            className="w-full bg-surface-1/20 border border-divider/10 rounded-2xl px-5 py-3.5 text-text-1 text-sm placeholder:text-text-1/20 focus:outline-none focus:border-action/40 transition-colors"
                                             placeholder={t.contact.formEmail}
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-ivory/50 mb-2">{t.contact.formPhone}</label>
+                                        <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formPhone}</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
-                                            className="w-full bg-slate/20 border border-ivory/10 rounded-2xl px-5 py-3.5 text-ivory text-sm placeholder:text-ivory/20 focus:outline-none focus:border-champagne/40 transition-colors"
+                                            className="w-full bg-surface-1/20 border border-divider/10 rounded-2xl px-5 py-3.5 text-text-1 text-sm placeholder:text-text-1/20 focus:outline-none focus:border-action/40 transition-colors"
                                             placeholder={t.contact.formPhone}
                                             dir="ltr"
                                         />
@@ -209,30 +209,30 @@ export default function Contact() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-ivory/50 mb-2">{t.contact.formService}</label>
+                                    <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formService}</label>
                                     <select
                                         name="service"
                                         value={formData.service}
                                         onChange={handleChange}
                                         required
-                                        className="w-full bg-slate/20 border border-ivory/10 rounded-2xl px-5 py-3.5 text-ivory text-sm focus:outline-none focus:border-champagne/40 transition-colors appearance-none cursor-pointer"
+                                        className="w-full bg-surface-1/20 border border-divider/10 rounded-2xl px-5 py-3.5 text-text-1 text-sm focus:outline-none focus:border-action/40 transition-colors appearance-none cursor-pointer"
                                     >
-                                        <option value="" className="bg-obsidian">{t.contact.formService}</option>
+                                        <option value="" className="bg-surface-0">{t.contact.formService}</option>
                                         {t.contact.formServiceOptions.map((opt, i) => (
-                                            <option key={i} value={opt} className="bg-obsidian">{opt}</option>
+                                            <option key={i} value={opt} className="bg-surface-0">{opt}</option>
                                         ))}
                                     </select>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-ivory/50 mb-2">{t.contact.formMessage}</label>
+                                    <label className="block text-sm font-medium text-text-1/50 mb-2">{t.contact.formMessage}</label>
                                     <textarea
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
                                         rows={5}
-                                        className="w-full bg-slate/20 border border-ivory/10 rounded-2xl px-5 py-3.5 text-ivory text-sm placeholder:text-ivory/20 focus:outline-none focus:border-champagne/40 transition-colors resize-none"
+                                        className="w-full bg-surface-1/20 border border-divider/10 rounded-2xl px-5 py-3.5 text-text-1 text-sm placeholder:text-text-1/20 focus:outline-none focus:border-action/40 transition-colors resize-none"
                                         placeholder={t.contact.formMessage}
                                     />
                                 </div>
@@ -250,10 +250,10 @@ export default function Contact() {
                 </div>
             </section>
 
-            <FAQSection bgClass="bg-obsidian" isDark={true} />
+            <FAQSection bgClass="bg-surface-0" isDark={true} />
 
             {/* Interactive Full-width Map */}
-            <section className="relative h-[450px] md:h-[600px] w-full border-t border-ivory/10 shadow-2xl">
+            <section className="relative h-[450px] md:h-[600px] w-full border-t border-divider/10 shadow-2xl">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d223.70647688805872!2d50.5013066!3d26.2193221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49bb42652f6ae5%3A0xf0732973a53ed81f!2z2YXZitiv2YrYpyDYs9iq2YjYsSBtZWRpYSBzdG9yZQ!5e0!3m2!1sar!2sbh!4v1771807101665!5m2!1sar!2sbh"
                     width="100%"
@@ -268,8 +268,8 @@ export default function Contact() {
 
                 {/* Floating location tag */}
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none">
-                    <div className="glass-card-light px-6 py-3 rounded-full border border-champagne/30 backdrop-blur-md animate-bounce-subtle">
-                        <span className="text-xs font-mono text-champagne tracking-widest uppercase flex items-center gap-2">
+                    <div className="glass-card-light px-6 py-3 rounded-full border border-action/30 backdrop-blur-md animate-bounce-subtle">
+                        <span className="text-xs font-mono text-action tracking-widest uppercase flex items-center gap-2">
                             <MapPin size={14} />
                             {isRTL ? 'موقعنا في أبو صيبع' : 'Visit our Workshop'}
                         </span>

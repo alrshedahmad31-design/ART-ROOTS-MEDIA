@@ -103,23 +103,23 @@ export default function Portfolio() {
                 <div className="absolute inset-0">
                     <img src="/assets/hero/hero_portfolio.webp" alt="Portfolio of signage, printing, and branding projects in Bahrain — ART ROOTS MEDIA" className="w-full h-full object-cover" />
                     <div className="gradient-hero absolute inset-0" />
-                    <div className="absolute inset-0 bg-obsidian/50" />
+                    <div className="absolute inset-0 bg-surface-0/50" />
                 </div>
                 <div className="container-custom relative z-10 text-center">
-                    <span className="font-mono text-xs text-champagne/70 uppercase tracking-widest mb-4 block">
+                    <span className="font-mono text-xs text-action/70 uppercase tracking-widest mb-4 block">
                         {isRTL ? 'معرض الأعمال' : 'Gallery'}
                     </span>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-ivory mb-4">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text-1 mb-4">
                         {t.portfolio.heroTitle}
                     </h1>
-                    <p className="text-lg md:text-xl text-ivory/50 max-w-xl mx-auto">
+                    <p className="text-lg md:text-xl text-text-1/50 max-w-xl mx-auto">
                         {t.portfolio.heroSubtitle}
                     </p>
                 </div>
             </section>
 
             {/* Filter Bar */}
-            <section className="bg-obsidian pb-8 border-b border-white/5">
+            <section className="bg-surface-0 pb-8 border-b border-white/5">
                 <div className="container-custom">
                     <div className="flex flex-wrap justify-center gap-3">
                         {Object.entries(labels).map(([key, label]) => (
@@ -128,8 +128,8 @@ export default function Portfolio() {
                                 onClick={() => setActiveFilter(key)}
                                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
                   ${activeFilter === key
-                                        ? 'bg-champagne text-obsidian shadow-lg shadow-champagne/20'
-                                        : 'bg-slate/30 text-ivory/50 border border-ivory/10 hover:border-champagne/30 hover:text-champagne'
+                                        ? 'bg-action text-obsidian shadow-lg shadow-champagne/20'
+                                        : 'bg-surface-1/30 text-text-1/50 border border-divider/10 hover:border-action/30 hover:text-action'
                                     }`}
                             >
                                 {label}
@@ -140,7 +140,7 @@ export default function Portfolio() {
             </section>
 
             {/* Interactive Stack Section */}
-            <section className="section-padding bg-obsidian py-20 overflow-hidden">
+            <section className="section-padding bg-surface-0 py-20 overflow-hidden">
                 <div className="container-custom">
                     <CardStack
                         items={filtered}
@@ -153,11 +153,11 @@ export default function Portfolio() {
             {/* Lightbox */}
             {lightbox && (
                 <div
-                    className="fixed inset-0 z-[100] bg-obsidian/95 backdrop-blur-2xl flex items-center justify-center p-4"
+                    className="fixed inset-0 z-[100] bg-surface-0/95 backdrop-blur-2xl flex items-center justify-center p-4"
                     onClick={() => setLightbox(null)}
                 >
                     <button
-                        className="absolute top-6 right-6 text-ivory/60 hover:text-ivory transition-colors"
+                        className="absolute top-6 right-6 text-text-1/60 hover:text-text-1 transition-colors"
                         onClick={() => setLightbox(null)}
                     >
                         <X size={28} />
